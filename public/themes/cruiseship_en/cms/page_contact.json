@@ -1,0 +1,54 @@
+{
+    "name": "单页面",
+    "action": "cms/Page/index",
+    "description": "单页面模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "en_inner_slide_page_contact": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            },
+            "en_address_cn": {
+                "title": "公司地址",
+                "value": "上海市徐汇区斜土路0001号",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "en_phone_cn": {
+                "title": "公司电话",
+                "value": "021 1000 0001",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "en_email": {
+                "title": "公司邮箱",
+                "value": "catman@thinkcmf.com",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets":{
+            
+        }
+    }
+}

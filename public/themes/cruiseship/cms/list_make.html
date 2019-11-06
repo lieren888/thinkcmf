@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$category.name} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.keywords},{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$category.description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+
+<body>
+    <div class="fh5co-loader"></div>
+
+    <div id="page">
+        <include file="public@nav" />
+
+        <php>
+            $top_slide_id=empty($theme_vars['inner_slide_list_make'])?1:$theme_vars['inner_slide_list_make'];
+        </php>
+        <slides id="$top_slide_id">
+            <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner"
+                style="background-image:url('{:cmf_get_image_url($vo.image)}');">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <div class="display-t">
+                                <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                                    <!-- <h1>{$category.name}</h1> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </slides>
+
+        <div class="head_bar">
+            <span>位置：</span>
+            <a href="__ROOT__/">首页 </a> &gt; 
+            <cms:breadcrumb cid="$category['id']">
+                <a href="{:cmf_url('cms/List/index',array('id'=>$vo['id']))}">{$vo.name} </a> &gt;
+            </cms:breadcrumb>
+            <span class="active">{$category.name}</span>
+        </div>
+
+        <div id="fh5co-blog" class="fh5co-bg-section" style="background: #f2f2f2; padding-top: 75px;">
+            <div class="container">
+
+                <div class="travel_con">
+                    <div class="xianguan">
+                        {$category.name}&nbsp; · &nbsp;HOT SEASON TOUR
+                    </div>
+                    <div class="tra_ul">
+                        <ul class="clearfix">
+                            <php>
+                                $where= function($query){
+                                $query->where('a.create_time','egt',0);
+                                };
+                                $page=[
+                                'list_rows'=>6,
+                                'next'=>'下一页',
+                                'prev'=>'上一页'
+                                ];
+                            </php>
+                            <cms:articles categoryIds="$category['id']" page="$page">
+                                <li class="wow bounceIn">
+                                    <a href="{:cmf_url('cms/Archives/index',array('id'=>$vo['id'],'cid'=>$vo['channel_id']))}"><img
+                                            src="{:cmf_get_image_url($vo.more.thumbnail)}" alt=""
+                                            class="vcenter"><i></i></a>
+                                    <a href="{:cmf_url('cms/Archives/index',array('id'=>$vo['id'],'cid'=>$vo['channel_id']))}">{$vo.title}</a>
+                                </li>
+                            </cms:articles>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="pagination">
+                    <page />
+                </ul>
+
+            </div>
+        </div>
+
+
+        <include file="public@footer" />
+        <include file="public@scripts" />
+        <hook name="before_body_end" />
+</body>
+
+</html>

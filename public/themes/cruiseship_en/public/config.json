@@ -1,0 +1,45 @@
+{
+    "name": "模板全局配置",
+    "action": "public/Config",
+    "description": "模板全局配置文件",
+    "is_public": "1",
+    "order": 0.0,
+    "more": {
+        "vars": {
+            "en_logo": {
+                "title": "公司Logo",
+                "value": "",
+                "type": "image",
+                "tip": "",
+                "rule": { 
+                    "require": true
+                },
+                "message":{
+                    "require":"不能为空"
+                }
+            }
+        },
+        "widgets":{
+            "en_page_contact": {
+                "title": "联系我们",
+                "display": "1",
+                "vars": {
+                    "en_page_id": {
+                        "title": "单页ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "cms/page/index",
+                            "multi": false
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

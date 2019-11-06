@@ -1,0 +1,76 @@
+<include file="public@header" />
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('AdminModelx/index')}">模型管理</a></li>
+            <li class="active"><a href="{:url('AdminFields/index',array('model_id'=>$model_id))}">字段管理</a></li>
+            <li><a href="{:url('AdminFields/add',array('model_id'=>$model_id))}">添加字段</a></li>
+        </ul>
+        <form class="js-ajax-form" action="" method="post">
+            <div class="table-actions">
+                <button class="btn btn-primary btn-sm js-ajax-submit" type="submit"
+                    data-action="{:url('AdminFields/listOrder')}">{:lang('SORT')}
+                </button>
+                <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
+                    data-action="{:url('AdminFields/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
+                    {:lang('DELETE')}
+                </button>
+            </div>
+            <table class="table table-hover table-bordered" id="menus-table">
+                <thead>
+                    <tr>
+                        <th width="16" style="padding-left:20px;">
+                            <label>
+                                <input type="checkbox" class="js-check-all" data-direction="x"
+                                    data-checklist="js-check-x">
+                            </label>
+                        </th>
+                        <th width="50">{:lang('SORT')}</th>
+                        <th width="50">ID</th>
+                        <th>名称</th>
+                        <th>类型</th>
+                        <th>标题</th>
+                        <th>状态</th>
+                        <th width="200">
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <foreach name="fieldsList" id="vo">
+                        <tr>
+                            <td width="16" style="padding-left:20px;">
+                                <label>
+                                    <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x"
+                                        name="ids[]" value="{$vo.id}" title="ID:{$vo.id}">
+                                </label>
+                            </td>
+                            <td>
+                                <input name="list_orders[{$vo.id}]" class="input-order" type="text"
+                                    value="{$vo.list_order}">
+                            </td>
+                            <td width="50">{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.type}</td>
+                            <td>{$vo.title}</td>
+                            <td><if condition="$vo.status eq 0"><font color="red"></if>{$statusList[$vo.status]}<if condition="$vo.status eq 0"></font></if></td>
+                            <td>
+                                <a class="btn btn-xs btn-primary"
+                                    href="{:url('AdminFields/edit',array('id'=>$vo.id))}">{:lang('EDIT')}</a>
+                                <a class="btn btn-xs btn-danger js-ajax-delete" class=""
+                                    href="{:url('AdminFields/delete',array('id'=>$vo.id))}">{:lang('DELETE')}</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                </tfoot>
+            </table>
+
+            <ul class="pagination">{$page|default=''}</ul>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+
+</html>

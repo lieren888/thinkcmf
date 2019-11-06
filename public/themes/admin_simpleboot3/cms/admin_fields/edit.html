@@ -1,0 +1,147 @@
+<include file="public@header" />
+<style>
+    .thide {
+        display: none;
+    }
+
+    .tshow {
+        display: table-row;
+    }
+</style>
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('AdminModelx/index')}">模型管理</a></li>
+            <li><a href="{:url('AdminFields/index',array('model_id'=>$model_id))}">字段管理</a></li>
+            <li class="active"><a href="">编辑字段</a></li>
+            <li><a href="{:url('AdminFields/add',array('model_id'=>$model_id))}">添加字段</a></li>
+        </ul>
+        <div class="row margin-top-20">
+            <div class="col-md-6">
+                <form class="js-ajax-form" action="{:url('AdminFields/editPost')}" method="post">
+                    <input type="hidden" name="post[model_id]" value="{$model_id}" />
+                    <input type="hidden" name="post[diyform_id]" value="{$diyform_id}" />
+                    <input type="hidden" name="post[oldname]" value="{$name}" />
+                    <div class="row">
+                        <div class="col-md-9">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>字段标题<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[title]" id="title" required
+                                            value="{$title}" placeholder="请输入字段标题" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>字段名称<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[name]" id="name" required
+                                            value="{$name}" placeholder="请输入字段名称" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>类型<span class="form-required">*</span></th>
+                                    <td>
+                                        <select class="form-control" name="post[type]" id="input-type">
+                                            <foreach name="typeList" item="vo" key="key">
+                                                <option value="{$key}">{$vo}</option>
+                                            </foreach>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="thide tf-radio">
+                                    <th>{:lang('Content')}<span class="form-required">*</span></th>
+                                    <td>
+                                        <textarea id="content" data-rule="required" class="form-control"
+                                            name="post[content]"><notempty name="content">{$content}<else/>value1|title1
+value2|title2</notempty></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="thide tf-number">
+                                    <th>{:lang('Decimals')}<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[decimals]" id="decimals"
+                                            value="{$decimals}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>默认值</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[defaultvalue]"
+                                            id="defaultvalue" value="{$defaultvalue}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>字段长度</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[length]" id="length"
+                                            value="{$length}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>排序号</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[list_order]" id="list_order"
+                                            value="{$list_order}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{:lang('STATUS')}</th>
+                                    <php>
+                                        $status_yes=$status=='1'?"checked":"";
+                                        $status_no=$status=='0'?"checked":"";
+                                    </php>
+                                    <td>
+                                        <input type="radio" name="post[status]" value="1" {$status_yes}>
+                                        {:lang('ENABLED')}
+                                        &nbsp;&nbsp;
+                                        <input type="radio" name="post[status]" value="0" {$status_no}>
+                                        {:lang('DISABLED')}
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="form-group">
+                                <input type="hidden" name="post[id]" value="{$id}">
+                                <button type="submit" class="btn btn-primary js-ajax-submit"
+                                    data-refresh="0">{:lang('SAVE')}
+                                </button>
+                                <a class="btn btn-default"
+                                    href="{:url('AdminFields/index',array('model_id'=>$model_id))}">{:lang('BACK')}</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //默认
+            selItem("{$type}");
+            //栏目选择
+            $(document).on('change', '#input-type', function () {
+                selItem($(this).val().toLowerCase());
+            })
+            function selItem(type) {
+                $('#input-type').val(type);
+                $('.tf-radio').removeClass('tshow');
+                switch (type) {
+                    case "radio":
+                    case "checkbox":
+                        $('.tf-radio').addClass('tshow');
+                        break;
+                    case "number":
+                        $('.tf-number').addClass('tshow');
+                        break;
+                    default:
+                        break;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

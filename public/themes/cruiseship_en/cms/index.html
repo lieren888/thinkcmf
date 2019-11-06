@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+
+<body>
+
+    <div class="fh5co-loader"></div>
+
+    <div id="page">
+
+        <include file="public@nav" />
+        <!--<div class="overlay"></div>-->
+        <section>
+            <div id="hwslider" class="hwslider">
+                <php>
+                    $top_slide_id=empty($theme_vars['en_top_slide'])?1:$theme_vars['en_top_slide'];
+                </php>
+                <ul>
+                    <slides id="$top_slide_id">
+                        <li>
+                            <a href="{$vo.url|default=''}"><img src="{:cmf_get_image_url($vo.image)}"
+                                    alt="{$vo.title|default=''}"></a>
+                        </li>
+                    </slides>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <widget name="en_articles_customer">
+            <section>
+                <div class="lightModuleOuterContent lightModuleOuterContent317">
+                    <div class="fk-editor simpleText   ">
+                        <div style="text-align: center;">
+                            <span style="color: rgb(243, 243, 243); background-color: transparent;">
+                                <span style="font-size: 110px;">
+                                    <font face="Arial">01</font>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lightModuleOuterContent lightModuleOuterContent318" style="position: relative;
+        top: -118px;">
+                    <div class="fk-editor simpleText   ">
+                        <div style="text-align: center;">
+                            <span style="font-size: 30px; background-color: transparent;">
+                                <font style="color: rgb(47, 47, 47);" color="#2f2f2f">
+                                    <b>{$widget.title}</b></font>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lightModuleOuterContent lightModuleOuterContent319" style="    position: relative;
+        top: -50px;">
+                    <div class="fk-editor simpleText  ">
+                        <span style="font-size: 15px;">
+                            <font color="#7d7d7d"><span style="line-height: 29px;">
+                                    <font style="color: rgb(125, 125, 125);" color="#7d7d7d">
+                                        <div style="text-align: center;">
+                                            {$widget.vars.en_articles_customer_sub_title}
+                                        </div>
+                                    </font>
+                                </span>
+                            </font>
+                        </span>
+                    </div>
+                </div>
+            </section>
+            <div id="fh5co-services" class="fh5co-bg-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="i_serList">
+                            <ul>
+                                <php>
+                                    $articles_customer_piclist = $widget['vars']['en_articles_customer_piclist'];
+                                </php>
+                                <volist name="$articles_customer_piclist" id="vo">
+                                    <li class="col-md-4 col-xs-12">
+                                        <div class="kuang">
+                                            <div class="img">
+                                                <a class="brand_name" href="{$vo.url}" style="display: inline;">
+                                                    <img src="{:cmf_get_image_url($vo.icon)}"></a>
+                                                <a class="brand_detail" href="{$vo.url}" style="display: none;">
+                                                    <img src="{:cmf_get_image_url($vo.icon)}"></a>
+                                            </div>
+                                            <span>
+                                                <h2>
+                                                    <a>{$vo.title}</a></h2>
+                                                <p>
+                                                    {$vo.content}</p>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </widget>
+
+
+        <widget name="en_articles_line">
+            <div id="fh5co-project">
+                <div class="container">
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2>Tourism·<span style="font-size: 25px;"> {$widget.title}</span></h2>
+                            <p>{$widget.vars.en_articles_line_sub_title}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <php>
+                            $widget["vars"]["en_articles_line_category_id"] =
+                            empty($widget["vars"]["en_articles_line_category_id"])?1:$widget["vars"]["en_articles_line_category_id"];
+                            $articles_line_limit=6;
+                        </php>
+                        <cms:articles limit="$articles_line_limit" order="a.published_time DESC" relation="true"
+                            categoryIds="$widget.vars.en_articles_line_category_id">
+                            <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
+                                <a href="{:cmf_url('cms/Archives/index',array('id'=>$vo.id,'cid'=>$vo.channel_id))}">
+                                    <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.title_en}"
+                                        class="img-responsive">
+                                    <h3>{$vo.title_en}</h3>
+                                    <span>￥{$vo.price}</span>
+                                </a>
+                            </div>
+                        </cms:articles>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+        <widget name="en_articles_service">
+            <div id="fh5co-testimonial" style="background-image:url(__TMPL__/public/assets/images/banner5.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row animate-box col-md-12 zi">
+                        <div class="col-md-7 col-md-offset-2  fh5co-heading tou ">
+                            <h2>Our service/ <span style="font-size: 25px;">{$widget.title}</span> </h2>
+                            <p style="color: #fff; font-size: 14px;">
+                                {$widget.vars.en_articles_service_sub_title}
+                            </p>
+                        </div>
+
+                        <div class="row animate-box col-md-7">
+                            <ul>
+                                <php>
+                                    $articles_service_txtlist = $widget['vars']['en_articles_service_txtlist'];
+                                </php>
+                                <volist name="$articles_service_txtlist" id="vo">
+                                    <li class="col-md-7">{$vo.title}</li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div class="col-md-5 tupian animate-box">
+                            <img src="{:cmf_get_image_url($widget.vars.en_articles_service_image)}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+        <widget name="en_articles_trip">
+            <div id="fh5co-blog" class="fh5co-bg-section"
+                style="background-image: url(__TMPL__/public/assets/images/44.png);">
+                <div class="container">
+                    <section>
+                        <div class="lightModuleOuterContent lightModuleOuterContent317">
+                            <div class="fk-editor simpleText   ">
+                                <div style="text-align: center;">
+                                    <span style="color: rgb(208, 201, 201); background-color: transparent;">
+                                        <span style="font-size: 110px;">
+                                            <font face="Arial">02</font>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lightModuleOuterContent lightModuleOuterContent318" style="position: relative;
+        top: -118px;">
+                            <div class="fk-editor simpleText   ">
+                                <div style="text-align: center;">
+                                    <span style="font-size: 30px; background-color: transparent;">
+                                        <font style="color: rgb(47, 47, 47);" color="#2f2f2f"><b>{$widget.title}</b>
+                                        </font>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lightModuleOuterContent lightModuleOuterContent319" style="    position: relative;
+        top: -50px;">
+                            <div class="fk-editor simpleText  ">
+                                <span style="font-size: 15px;">
+                                    <font color="#7d7d7d"><span style="line-height: 29px;">
+                                            <font style="color: rgb(125, 125, 125);" color="#7d7d7d">
+                                                <div style="text-align: center;">
+                                                    {$widget.vars.en_articles_trip_sub_title}
+                                                </div>
+                                            </font>
+                                        </span>
+                                    </font>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="row si">
+                        <php>
+                            $widget["vars"]["en_articles_trip_category_id"] =
+                            empty($widget["vars"]["en_articles_trip_category_id"])?1:$widget["vars"]["en_articles_trip_category_id"];
+                            $articles_trip_limit=3;
+                        </php>
+                        <cms:articles limit="$articles_trip_limit" order="a.published_time DESC" relation="true"
+                            categoryIds="$widget.vars.en_articles_trip_category_id">
+                            <div class="col-lg-4 col-md-4  col-xs-12 a">
+                                <div class="fh5co-blog animate-box">
+                                    <a
+                                        href="{:cmf_url('cms/Archives/index',array('id'=>$vo['id'],'cid'=>$vo['channel_id']))}"><img
+                                            class="img-responsive" src="{:cmf_get_image_url($vo.more.thumbnail)}" alt=""
+                                            style="width:392px; height:292px;"></a>
+                                    <div class="blog-text">
+                                        <h3><a
+                                                href="{:cmf_url('cms/Archives/index',array('id'=>$vo['id'],'cid'=>$vo['channel_id']))}">{$vo.title_en}</a>
+                                        </h3>
+                                        <span class="posted_on">{:date('Y-m-d',$vo.published_time)}</span>
+                                        <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
+                                        <div>
+                                            {$vo.intro|mb_substr=0,80,'utf-8'}…
+                                        </div>
+                                        <a href="{:cmf_url('cms/Archives/index',array('id'=>$vo['id'],'cid'=>$vo['channel_id']))}"
+                                            class="btn btn-primary">查看</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </cms:articles>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+        <include file="public@footer" />
+        <include file="public@scripts" />
+        <script type="text/javascript" src="__TMPL__/public/assets/js/jquery.hwslider.min.js"></script>
+        <script>
+            /*banner*/
+            $(function () {
+                $("#hwslider").hwSlider({
+                    height: 190,
+                    autoPlay: true,
+                    arrShow: true,
+                    dotShow: true,
+                    touch: true
+                });
+                $("#hwslider1").hwSlider({
+                    height: 5,
+                    autoPlay: true,
+                    arrShow: true,
+                    dotShow: true,
+                    touch: true
+                });
+            });
+                // $(".hiSlider').hiSlider({
+                //   isFlexible: true,
+                //  isSupportTouch: true,
+                // });
+                // var swiper = new Swiper('.swiper-container', {
+                //      pagination: '.swiper-pagination',
+                //      nextButton: '.swiper-button-next',
+                //      prevButton: '.swiper-button-prev',
+                //      slidesPerView: 5,
+                //      paginationClickable: true,
+                //      spaceBetween: 30
+                //  });
+        </script>
+        <!-- /container -->
+        <hook name="before_body_end" />
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+{
+    "name": "首页",
+    "action": "cms/Index/index",
+    "description": "首页模板文件",
+    "order": 5.0,
+    "more": {
+        "vars": {
+            "en_top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets":{
+            "en_articles_customer": {
+                "title": "Customer Satisfaction Is Their Greatest Pursuit",
+                "display": "1",
+                "vars": {
+                    "en_articles_customer_sub_title": {
+                        "title": "副标题",
+                        "value": "A trip is not a trip, nor is it a vacation. Travel is a process, a discovery. It's a process of self-discovery. Real travel brings us face to face with ourselves.<br/>Travel allows us to see not only the world, but also our place in it.",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "en_articles_customer_piclist": {
+                        "title": "三张图标",
+                        "value": [
+                            {
+                                "title": "行程定制",
+                                "icon": "",
+                                "url":"#",
+                                "content": "Choose Viking cruise, you can not only enjoy the wonderful experience of taking a river cruise to visit Europe, taste authentic Chinese and western food, cruise cultural landscape."
+                            },
+                            {
+                                "title": "贴心服务",
+                                "icon": "",
+                                "url":"#",
+                                "content": "With Viking cruises, we believe vacations should be a total relaxation."
+                            },
+                            {
+                                "title": "贴心服务",
+                                "icon": "",
+                                "url":"#",
+                                "content": "For the service staff of Viking cruises, our important job is to make you feel comfortable and take care of you."
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "icon": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "url": {
+                                "title": "链接",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "en_articles_line": {
+                "title": "游记推荐",
+                "display": "1",
+                "vars": {
+                    "en_articles_line_sub_title": {
+                        "title": "副标题",
+                        "value": "Travel, freedom. No complicated plans, no heavy burden, only the purest attitude.",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "en_articles_line_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "cms/channel/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "en_articles_service": {
+                "title": "我们的服务",
+                "display": "1",
+                "vars": {
+                    "en_articles_service_sub_title": {
+                        "title": "副标题",
+                        "value": "A trip is not a trip, nor is it a vacation. Travel is a process, a discovery. It's a process of self-discovery. Real travel brings us face to face with ourselves.Travel allows us to see not only the world, but also our place in it.",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "en_articles_service_image": {
+                        "title": "图片",
+                        "value": "",
+                        "type": "image",
+                        "tip": "",
+                        "rule": { 
+                            "require": true
+                        },
+                        "message":{
+                            "require":"不能为空"
+                        }
+                    },
+                    "en_articles_service_txtlist": {
+                        "title": "文字介绍",
+                        "value": [
+                            {
+                                "title": "Efficient and efficient provider system application, gathered more than 2000 suppliers around the world"
+                            },
+                            {
+                                "title": "Rich resources, more than 2 million tourism routes for you to choose"
+                            },
+                            {
+                                "title": "Eight core guarantees, elect us to be more at ease"
+                            },
+                            {
+                                "title": "We have cooperated with tourism strategic brand alliance and many, many strategic partners"
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "en_articles_trip": {
+                "title": "Make The Tourists Happy And Happy Trip",
+                "display": "1",
+                "vars": {
+                    "en_articles_trip_sub_title": {
+                        "title": "副标题",
+                        "value": "A trip is not a trip, nor is it a vacation. Travel is a process, a discovery. It's a process of self-discovery. Real travel brings us face to face with ourselves.<br>Travel allows us to see not only the world, but also our place in it.",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "en_articles_trip_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "cms/channel/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

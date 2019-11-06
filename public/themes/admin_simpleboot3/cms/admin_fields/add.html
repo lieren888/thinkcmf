@@ -1,0 +1,149 @@
+<include file="public@header" />
+<style>
+    .thide {
+        display: none;
+    }
+
+    .tshow {
+        display: table-row;
+    }
+</style>
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('AdminModelx/index')}">模型管理</a></li>
+            <li><a href="{:url('AdminFields/index',array('model_id'=>$model_id))}">字段管理</a></li>
+            <li class="active"><a href="{:url('AdminFields/add',array('model_id'=>$model_id))}">添加字段</a></li>
+        </ul>
+        <div class="row margin-top-20">
+            <div class="col-md-6">
+                <form action="{:url('AdminFields/addPost')}" method="post"
+                    class="form-horizontal js-ajax-form margin-top-20">
+                    <input type="hidden" name="post[model_id]" value="{$model_id}" />
+                    <input type="hidden" name="post[diyform_id]" value="{$diyform_id}" />
+                    <div class="row">
+                        <div class="col-md-9">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>字段标题<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[title]" id="title" required
+                                            value="" placeholder="请输入字段标题" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>字段名称<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[name]" id="name" required
+                                            value="" placeholder="请输入字段名称" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>类型<span class="form-required">*</span></th>
+                                    <td>
+                                        <select class="form-control" name="post[type]" id="input-type">
+                                            <foreach name="typeList" item="vo" key="key">
+                                                <option value="{$key}">{$vo}</option>
+                                            </foreach>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="thide tf-radio">
+                                    <th>{:lang('Content')}<span class="form-required">*</span></th>
+                                    <td>
+                                        <textarea id="content" data-rule="required" class="form-control"
+                                            name="post[content]">value1|title1
+value2|title2</textarea>
+                                    </td>
+                                </tr>
+                                <tr class="thide tf-number">
+                                    <th>{:lang('Decimals')}<span class="form-required">*</span></th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[decimals]" id="decimals"
+                                            value="0" maxlength="30" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>默认值</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[defaultvalue]"
+                                            id="defaultvalue" value="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>字段长度</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[length]" id="length"
+                                            value="255" />
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <th>排序号</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="post[list_order]" id="list_order"
+                                            value="100" />
+                                    </td>
+                                </tr> -->
+                                <tr>
+                                    <th>{:lang('STATUS')}</th>
+                                    <td>
+                                        <input type="radio" name="post[status]" value="1" checked>
+                                        {:lang('ENABLED')}
+                                        &nbsp;&nbsp;
+                                        <input type="radio" name="post[status]" value="0">
+                                        {:lang('DISABLED')}
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                                    <a class="btn btn-default" href="{:url('AdminFields/index')}">{:lang('BACK')}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //栏目选择
+            $(document).on('change', '#input-type', function () {
+                selItem($(this).val().toLowerCase());
+            })
+            //小数点长度
+            $(document).on('change', '#decimals', function () {
+                var nubmer = $(this).val();
+                if (isNaN(nubmer) || nubmer <= 0 || !(/^\d+$/.test(nubmer)) || nubmer.indexOf('0') == 0) {
+                    alert("请输入正确的数值,只允许输入整数!");
+                    $(this).select();
+                }
+                if (nubmer > 0) {
+                    $("#length").val("65");
+                }
+            })
+            function selItem(type) {
+                $('.tf-radio').removeClass('tshow');
+                $("#length").val("255");
+                switch (type) {
+                    case "radio":
+                    case "checkbox":
+                        $('.tf-radio').addClass('tshow');
+                        break;
+                    case "number":
+                        $('.tf-number').addClass('tshow');
+                        break;
+                    default:
+                        break;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

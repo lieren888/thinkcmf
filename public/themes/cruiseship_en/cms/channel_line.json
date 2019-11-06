@@ -1,0 +1,27 @@
+{
+    "name": "栏目主页-精选路线",
+    "action": "cms/Channel/index",
+    "description": "栏目主页-精选路线模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "en_inner_slide_line": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets":{
+            
+        }
+    }
+}

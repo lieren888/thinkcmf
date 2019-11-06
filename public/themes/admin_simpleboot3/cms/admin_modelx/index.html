@@ -1,0 +1,71 @@
+<include file="public@header" />
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{:url('AdminModelx/index')}">模型管理</a></li>
+            <li><a href="{:url('AdminModelx/add')}">添加模型</a></li>
+        </ul>
+        <div style="padding: 10px 15px; background: #e8edf0;">在线添加修改删除模型，管理模型字段和相关模型数据</div>
+        <form class="js-ajax-form" action="" method="post">
+            <div class="table-actions">
+                <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
+                    data-action="{:url('AdminModelx/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
+                    {:lang('DELETE')}
+                </button>
+            </div>
+            <table class="table table-hover table-bordered" id="menus-table">
+                <thead>
+                    <tr>
+                        <th width="16" style="padding-left:20px;">
+                            <label>
+                                <input type="checkbox" class="js-check-all" data-direction="x"
+                                    data-checklist="js-check-x">
+                            </label>
+                        </th>
+                        <th width="50">ID</th>
+                        <th>模型名称</th>
+                        <th>表名</th>
+                        <th>栏目页模板</th>
+                        <th>列表页模板</th>
+                        <th>详情页模板</th>
+                        <th width="200">
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <foreach name="modelList" id="vo">
+                        <tr>
+                            <td width="16" style="padding-left:20px;">
+                                <label>
+                                    <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x"
+                                        name="ids[]" value="{$vo.id}" title="ID:{$vo.id}">
+                                </label>
+                            </td>
+                            <td width="50">{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.table}</td>
+                            <td>{$vo.channeltpl}</td>
+                            <td>{$vo.listtpl}</td>
+                            <td>{$vo.showtpl}</td>
+                            <td>
+                                <a class="btn btn-xs btn-primary"
+                                    href="{:url('AdminFields/index',array('model_id'=>$vo.id))}">{:lang('FIELD_LIST')}</a>
+                                <a class="btn btn-xs btn-primary"
+                                    href="{:url('AdminModelx/edit',array('id'=>$vo.id))}">{:lang('EDIT')}</a>
+                                <a class="btn btn-xs btn-danger js-ajax-delete" class=""
+                                    href="{:url('AdminModelx/delete',array('id'=>$vo.id))}">{:lang('DELETE')}</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                </tfoot>
+            </table>
+            <ul class="pagination">{$page|default=''}</ul>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+
+</html>

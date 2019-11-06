@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$page.title}</title>
+    <meta name="keywords" content="{$page.keywords}" />
+    <meta name="description" content="{$page.description}">
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+
+<body>
+    <div class="fh5co-loader"></div>
+
+    <div id="page">
+
+        <include file="public@nav" />
+
+        <php>
+            $top_slide_id=empty($theme_vars['inner_slide_page'])?1:$theme_vars['inner_slide_page'];
+        </php>
+        <slides id="$top_slide_id">
+            <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner"
+                style="background-image:url('{:cmf_get_image_url($vo.image)}');">
+            </header>
+        </slides>
+
+        <div id="fh5co-about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="row animate-box">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="desc">
+                                {$page.content}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 about-tu">
+                            <img class="img-responsive" src="{:cmf_get_image_url($page.more.thumbnail)}" alt="about">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+
+                        <h2>团队精英</h2>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                        <div class="fh5co-staff">
+                            <img src="__TMPL__/public/assets/images/person1.jpg"
+                                alt="Free HTML5 Templates by FreeHTML5.co">
+                            <h3>李导游</h3>
+                            <strong class="role">高级资深导游</strong>
+                            <p>（5年导游带团经验）</p>
+                            <ul class="fh5co-social-icons">
+                                <li>
+                                    <a href="#"><i class="icon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-dribbble"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-github"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                        <div class="fh5co-staff">
+                            <img src="__TMPL__/public/assets/images/9825bc315c6034a87638f97dcb13495408237677.jpg"
+                                alt="Free HTML5 Templates by FreeHTML5.co">
+                            <h3>张导游</h3>
+                            <strong class="role">高级资深导游</strong>
+                            <p>（10年导游带团经验）</p>
+                            <ul class="fh5co-social-icons">
+                                <li>
+                                    <a href="#"><i class="icon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-dribbble"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-github"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                        <div class="fh5co-staff">
+                            <img src="__TMPL__/public/assets/images/person2.jpg"
+                                alt="Free HTML5 Templates by FreeHTML5.co">
+                            <h3>孙导游</h3>
+                            <strong class="role">高级资深导游</strong>
+                            <p>（7年导游带团经验）</p>
+                            <ul class="fh5co-social-icons">
+                                <li>
+                                    <a href="#"><i class="icon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-dribbble"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-github"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <include file="public@footer" />
+    <include file="public@scripts" />
+    <hook name="before_body_end" />
+</body>
+
+</html>
