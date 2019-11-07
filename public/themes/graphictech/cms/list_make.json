@@ -1,0 +1,27 @@
+{
+    "name": "文章列表页-私人定制",
+    "action": "cms/List/index",
+    "description": "文章列表模板文件-私人定制",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "inner_slide_list_make": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets":{
+            
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<nav id="main-navigation" class="navbar-fixed-top">
+  <div class="header-top">
+    <div class="container">
+      <div class="region region-header-top">
+        <a class="logo pull-left" href="/" title="首页" rel="home">
+          <img data-src-origin="https://solargard.saint-gobain.com.cn/themes/custom/solargard/logo.png" data-src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/images/logo-white.png" src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/logo.png" alt="首页" />
+        </a>
+        <div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-solargard-search" role="search">
+          <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+            <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label">
+              <label for="edit-keys" class="control-label sr-only">Search</label>
+              <input title="请输入您想搜索的关键词。" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="30" maxlength="128" placeholder="搜索关键字" class="form-search form-control" />
+            </div>
+            <div data-drupal-selector="edit-actions" class="form-actions form-group js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="" class="button js-form-submit form-submit btn btn-primary" /></div>
+          </form>
+        </div>
+        <section id="block-englishversion" class="block block-block-content block-block-contentbb5c8564-81ad-45aa-b34b-108013da9f01 clearfix">
+          <div class="field field--name-link field--type-link field--label-hidden field--item"><a href="http://www.solargard.com" target="_blank">ENGLISH</a></div>
+        </section>
+      </div>
+        <a class="logo-saint-gobain" href="http://www.saint-gobain.com.cn/" target="_blank">
+          <div><img src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/images/logo-st-gobain.png" alt="" title=""></div>
+        </a>
+    </div>
+  </div>
+  <header id="navbar" role="banner">
+    <div class="container">
+      <div class="region region-navigation">
+        <section id="block-responsivemenumobileicon" class="responsive-menu-toggle block block-responsive-menu block-responsive-menu-toggle clearfix">
+          <a id="toggle-icon" class="toggle responsive-menu-toggle-icon" title="Menu" href="#off-canvas">
+            <span class="icon"></span>
+            <span class="label">菜单</span></a>
+        </section>
+        <section id="block-horizontalmenu" class="block block-responsive-menu block-responsive-menu-horizontal-menu clearfix">
+            <?php
+                $navMenuModel = new \app\admin\model\NavMenuModel();
+                $menus = $navMenuModel->navMenusTreeArray("", 0);
+            ?>
+          <nav class="responsive-menu-block-wrapper">
+            <ul id="horizontal-menu" class="horizontal-menu">
+              <volist name="menus" id="r">
+                <li>
+                  <a href="{$r.href}">{$r.name}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <if condition="$r[children]">
+                  <ul class="menu sub-nav">
+                    <volist name="r[children]" id="vo">
+                      <li><a href="{$vo.href}" data-drupal-link-system-path="{$vo.href}">{$vo.name}</a></li>
+                    </volist>
+                  </ul>
+                  </if>
+                </li>
+              </volist>
+              <li>
+                <a href="/node/153">建筑膜<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="menu sub-nav">
+                  <li><a href="/node/153" data-drupal-link-system-path="node/153">建筑膜</a></li>
+                  <li><a href="/node/3678" data-drupal-link-system-path="node/3678">建筑膜科普课堂</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/map">加盟店网络<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="menu sub-nav">
+                  <li><a href="/map" data-drupal-link-system-path="map">加盟店查询</a></li>
+                  <li><a href="/form/order" data-drupal-link-system-path="webform/order">加盟店预约</a></li>
+                  <li><a href="/node/3729" data-drupal-link-system-path="node/3729">优质门店</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/node/161">车主服务<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="menu sub-nav">
+                  <li><a href="/enquiry" data-drupal-link-system-path="enquiry">质保查询</a></li>
+                  <li><a href="/node/182" data-drupal-link-system-path="node/182">产品验真</a></li>
+                  <li><a href="/node/186" data-drupal-link-system-path="node/186">积分俱乐部</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/node/191">公司介绍<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="menu sub-nav">
+                  <li><a href="/node/3675" title="相关认证" data-drupal-link-system-path="node/3675">行业认证</a></li>
+                  <li><a href="/node/3696" data-drupal-link-system-path="node/3696">成功案例</a></li>
+                  <li><a href="/news" data-drupal-link-system-path="news">新闻动态</a></li>
+                  <li><a href="/node/3718" data-drupal-link-system-path="node/3718">战略合作伙伴</a></li>
+                  <li><a href="/node/3720" data-drupal-link-system-path="node/3720">联系我们</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+  </header>
+</nav>

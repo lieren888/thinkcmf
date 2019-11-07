@@ -1,0 +1,429 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>首页 {$site_info.site_name|default='GT车膜'}</title>
+    <meta name="description" content="{$site_info.description|default='GT车膜'}" />
+    <meta name="keywords" content="{$site_info.keywords|default='GT车膜'}" />
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+    <body class="path-frontpage page-node-type-landing-page">
+      <a href="#main-content" class="visually-hidden focusable skip-link">
+        跳转到主要内容
+      </a>
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+                <section>  
+                    <a id="main-content"></a>
+                    <div class="region region-content">
+                        <article >
+                            <div class="content">
+                                <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                                    <div class="field--item">  
+                                        <php>
+                                            $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+                                        </php>
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="showcase">
+                                                <slides id="$top_slide_id">
+                                                    <div>
+                                                      <div class="slide-item">
+                                                        <div class="slide-img" style="background-image:url({:cmf_get_image_url($vo.image)});" ></div>
+                                                        <div class="showcase-content">
+                                                            <h2>{$vo.title|default=''}</h2>
+                                                            <p class="showcase-info"></p>
+                                                            <a class="btn" href="{$vo.url|default=''}">了解更多</a>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </slides>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="image-text above holder">
+                                              <div class="container">
+                                                <div class="image-text-content">
+                                                    <div class="image-text-text wow fadeIn"  data-wow-duration="1.5s">
+                                                        <p>圣戈班舒热佳<sup>®</sup>特殊镀膜有限公司隶属于法国圣戈班集团，是全球高端汽车太阳膜、汽车漆面保护膜和建筑膜领域——磁控溅射膜行业的领导者，总部位于美国加州圣地亚哥市，旗下拥有量子<sup>®</sup>膜（Quantum<sup>®</sup>）、舒热佳<sup>®</sup>（Solar Gard<sup>®</sup>）、 全景Panorama<sup>®</sup>, Solar Gard Armorcoat<sup>®</sup> 等品牌，在过去三十多年里，畅销全球90多个国家。量子<sup>®</sup>汽车膜、量子®漆面保护膜、舒热佳<sup>®</sup>汽车/建筑膜是享誉全球的高端窗膜品牌，并已被证实能够节能减排，减少全球温室气体排放，并呵护您和爱车漆面健康，让爱车历久弥新。</p>
+
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                          <div class="icon-title-text yellow holder">
+                                              <div class="container">
+                                                <div class="img wow fadeInDown" data-wow-delay="0.2s">
+                                                  <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/%E8%87%BB%E9%9A%8F%E8%A1%8C.jpg" alt="">
+                                                  <div class="blueLine"></div>
+                                                </div>
+                                                <div class="row icon-title-text-warp">
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="0s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/home.png" >
+                                                        </div>
+                                                      <h5>家居</h5>
+                                                      <p>隔热舒适、安全防爆、隔紫外、防止家具褪色、更保护隐私、降低眩光</p>
+                                                    </div>
+                                                  </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/car.png" >
+                                                        </div>
+                                                      <h5>汽车</h5>
+                                                      <p>隔热节能隔紫外、提升驾乘舒适度 <br>汽车漆面防腐蚀、呵护您和漆面健康</p>
+                                                    </div>
+                                                  </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/business.png" >
+                                                        </div>
+                                                      <h5>商业</h5>
+                                                      <p>隔热节能、安全防爆、提升工作<br>效率，改善建筑外观</p>
+                                                    </div>
+                                                  </div>
+                                                    <div class="col-sm-3 col-xs-6">
+                                                        <div class="icon-title-text-content">
+                                                            <div class="icon-box wow fadeIn" data-wow-duration="3s" data-wow-delay="0.3s">
+                                                              <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/uv-protection.png" >
+                                                            </div>
+                                                          <h5>安全</h5>
+                                                          <p>隐形安全屏障、防止漆面刮擦、泼水抗污<br>美国/中国国标认证、全面提升安全等级</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div id="chart" class="chart holder bg-lighter-blue">
+                                              <div class="container">
+                                                <h2 class="chart-title wow fadeInDown" data-wow-delay="0.25s">性能指标</h2>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-0" data-to="79">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>隔热</h3>
+                                                        <p>超级隔热，<br>提升车内/室内舒适度</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-1" data-to="30">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>节能</h3>
+                                                        <p>大幅减少碳排放，<br>为地球母亲减排</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-2" data-to="99">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>防紫外线</h3>
+                                                        <p>超级隔UV，防晒指数高达<br>SPF285+，呵护您和漆面的健康</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-3" data-to="95">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>防眩光</h3>
+                                                        <p>大幅降低刺眼眩光，<br>更舒适更安全</p>
+                                                      </div>
+                                                    </div>
+                                                    </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="holder opacity bg-white">
+                                                <div class="container">
+                                                  <div class="block-title wow fadeIn" data-wow-delay="0.5s">技术革新</div>
+                                                    <div class="image-map-container">
+                                                          <div class="image-map" style="background:url('https://solargard.saint-gobain.com.cn/sites/default/files/images/opacity/opcity.jpg') no-repeat;background-size: cover;">
+                                                            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1902.9" height="360" viewBox="0 0 1902.9 360">
+                                                              <defs>
+                                                                <clipPath id="mask-global">
+                                                                  <path d="M284 60h1902.9v368.5H284z"></path>
+                                                                </clipPath>
+                                                              </defs>
+                                                              <defs>
+                                                                <path id="SVGID_1_" d="M0 .9h1902.9v367.3H0z"></path>
+                                                              </defs>
+                                                              <clipPath id="SVGID_2_">
+                                                                <use xlink:href="#SVGID_1_" overflow="visible"></use>
+                                                              </clipPath>
+                                                              <path class="st2desktop" d="M1594.5.9l-358.8 367.3h24L1618.5.9h-24zm-475.7 0L760 368.2h24L1142.8.9h-24zM643 .9L284.2 368.2h24L667 .9h-24z"></path>
+                                                              <g>
+                                                                <g class="state_area">
+                                                                  <path class="st0desktop" d="M284.4 368.2h-640.2L-.6.9h645.2z"></path>
+                                                                  <path class="state_hover_area" d="M284.4 368.2h-640.2L-.6.9h645.2z"></path>
+                                                                  <text transform="translate(106.679 281.596)" class="st127 st128 st129desktop">染色膜</text>
+                                                                </g>
+                                                                <g class="state_area">
+                                                                  <path class="st1desktop" d="M758.3 368.2h-448L669 .3h448z"></path>
+                                                                  <path class="state_hover_area" d="M757.9 369H304.1L664.5.4h453.8z"></path>
+                                                                  <text transform="translate(471.212 282.596)" class="st127 st128 st129desktop">金属膜</text>
+                                                                </g>
+                                                                <g class="state_area">
+                                                                  <path class="st3desktop" d="M1233.4 369h-449L1144.5 1.9h449z"></path>
+                                                                  <path class="state_hover_area" d="M1237.2 368.7H783.4L1143.8.1h453.8z"></path>
+                                                                  <text transform="translate(1033.615 282.596)" class="st127 st128 st129desktop">纳米膜</text>
+                                                                </g>
+                                                                <g class="state_area state-area-selected">
+                                                                  <path class="st4desktop" d="M2263.3 0h-647.8L1258 368.9h644.9z"></path>
+                                                                  <path class="state_hover_area" d="M1904.3 369h-645.4L1619.3.4h645.5z"></path>
+                                                                  <text transform="translate(1430.502 281.596)" class="st127 st128 st129desktop">光谱选择膜</text>
+                                                                </g>
+                                                              </g>
+                                                            </svg>
+                                                          </div>
+                                                          <div class="image-map-mobile" style="background:url('https://solargard.saint-gobain.com.cn/sites/default/files/images/opacity/opcity.jpg') no-repeat;background-size: cover;">
+                                                                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="768.3" height="297" viewBox="0 0 768.3 297">
+                                                                  <defs>
+                                                                    <clipPath id="mask-global-mobile">
+                                                                      <path d="M10 7h868v398H10z"></path>
+                                                                    </clipPath>
+                                                                  </defs>
+                                                                    <path class="st0" d="M318.2 0L28.1 297h14.4L332.7 0zm206.2 0L234.2 297h14.4L538.8 0zm206.4 0L440.6 297H455L745.2 0z"></path>
+                                                                      <g class="st1">
+                                                                        <g class="state_area">
+                                                                          <path class="st0mobile" d="M27.7 297.5h-320L-1-.6h320z"></path>
+                                                                          <path class="state_hover_area" id="hover_x5F_4" d="M27.7 297.5h-320L-1-.6h320z"></path>
+                                                                          <text transform="translate(11 216.596)" class="st0 st3 st4">染色膜</text>
+                                                                        </g>
+                                                                        <g class="state_area">
+                                                                          <path class="st1mobile" d="M233.4 297H42.5L332.7 0h190.8z"></path>
+                                                                          <path class="state_hover_area" id="hover_x5F_2" d="M233.4 297H42.5L332.7 0h190.8z"></path>
+                                                                          <text transform="translate(145.323 217.596)" class="st0 st3 st4">金属膜</text>
+                                                                        </g>
+                                                                        <g class="state_area">
+                                                                          <path class="st3mobile" id="hover_x5F_3" d="M440.4 297H248.7L538.8 0h191.7z"></path>
+                                                                          <path class="state_hover_area" id="hover_x5F_3" d="M440.4 297H248.7L538.8 0h191.7z"></path>
+                                                                          <text transform="translate(394.163 217.596)" class="st0 st3 st4">纳米膜</text>
+                                                                        </g>
+                                                                        <g class="state_area">
+                                                                          <path class="st4desktop" d="M774.2 298.1h-320L745.5 0h320z"></path>
+                                                                          <path class="state_hover_area" id="hover_x5F_1_1_" d="M774.2 298.1h-320L745.5 0h320z"></path>
+                                                                          <text transform="translate(561.495 216.596)" class="st0 st3 st4">光谱选择膜</text>
+                                                                        </g>
+                                                                      </g>
+                                                                </svg>
+                                                          </div>
+                                                          <div class="image-map-content">
+                                                                <div class="image-map-section" data-shape="poly" data-coords="0,0,700,0,280,438,0,438" data-coords-mobile="0,0,270,0,25,250,0,250" style="display: none;"><h3>染色膜</h3>
+                                                                  <p style="font-size: 16px;">通过染色剂给聚酯薄膜染上深浅不同的颜色来隔热。</p>
+                                                                </div>
+                                                                <div class="image-map-section" data-shape="poly" data-coords="710,0,1215,0,787,438,365,438" data-coords-mobile="275,0,440,0,200,250,30,250" style="display: none;"><h3>金属膜</h3>
+                                                                  <p style="font-size: 16px;">通过在聚酯薄膜上涂布不同金属层来隔热</p>
+                                                                </div>
+                                                                <div class="image-map-section" data-shape="poly" data-coords="1235,0,1710,0,1290,438,790,438" data-coords-mobile="450,0,610,0,370,250,205,250" style="display: none;"><h3>纳米膜</h3>
+                                                                  <p style="font-size: 16px;">在聚酯薄膜上涂布纳米陶瓷粒子来隔热</p>
+                                                                </div>
+                                                                <div class="image-map-section" data-shape="poly" data-coords="1750,0,2048,0,2048,438,1300,438" data-coords-mobile="620,0,650,0,650,250,380,250" style="display: block;"><h3>光谱选择膜</h3>
+                                                                  <p style="font-size: 16px;">独有的专利技术，在真空状态下通过磁控溅射工艺将多种贵稀金属原子涂布到聚酯薄膜上</p>
+                                                                </div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="image-element holder bg-lighter-blue">
+                                              <div class="block-title wow fadeIn" data-wow-delay="0.5s">主要品牌</div>
+                                              <div class="container">
+                                                <div class="row image-element-warpper">
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/node/72" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u18.png" alt=""></a>
+                                                        <h4><a href="/node/72" title="">量子<sup>®</sup>汽车膜</a></h4>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/node/80" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u21.png" alt=""></a>    
+                                                        <h4><a href="/node/80" title=""> 量子<sup>®</sup>漆面保护膜</a></h4>    
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/node/139" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u19.png" alt=""></a>
+                                                        <h4><a href="/node/139" title="">舒热佳<sup>®</sup>汽车膜</a></h4>
+                                                    </div>            
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/node/153" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u20.png" alt=""></a>
+                                                        <h4><a href="/node/153" title="">舒热佳<sup>®</sup>建筑膜</a></h4>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                         </div>
+                                    </div>
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="video-lity holder">
+                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">热点聚焦</div>
+                                                <div class="container">
+                                                    <div class="row">
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u7_0.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-0" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>品牌愿景</h4>
+                                                         </div>
+                                                        <div id="video-lity-0" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/commercial_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                            <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u2.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-1" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>厂商探秘</h4>
+                                                          </div>
+                                                        <div id="video-lity-1" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/howto.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/WechatIMG5671.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-2" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>新品推荐</h4>
+                                                        </div>
+                                                        <div id="video-lity-2" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <include file='public@footer' />
+        </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div class="off-canvas-wrapper">
+        <div id="off-canvas">
+            <ul class="menu">
+                <li><a href="/node/149">汽车膜</a>
+                    <ul class="menu sub-nav">
+                        <li><a href="/node/72" data-drupal-link-system-path="node/72">量子®太阳膜</a></li>
+                        <li><a href="/node/9047" data-drupal-link-system-path="node/9047">量子®隐形玻璃盾</a></li>
+                        <li><a href="/node/80" data-drupal-link-system-path="node/80">量子®漆面保护膜</a></li>
+                        <li><a href="/node/139" data-drupal-link-system-path="node/139">舒热佳®</a></li>
+                        <li><a href="/node/3677" data-drupal-link-system-path="node/3677">汽车膜科普课堂</a></li>
+                    </ul>
+                </li>
+                <li><a href="/node/153">建筑膜</a>
+                    <ul class="menu sub-nav">
+                        <li><a href="/node/153" data-drupal-link-system-path="node/153">建筑膜</a></li>
+                        <li><a href="/node/3678" data-drupal-link-system-path="node/3678">建筑膜科普课堂</a></li>
+                    </ul>
+                </li>
+                <li><a href="/map">加盟店网络</a>
+                    <ul class="menu sub-nav">
+                        <li><a href="/map" data-drupal-link-system-path="map">加盟店查询</a></li>
+                        <li><a href="/form/order" data-drupal-link-system-path="webform/order">加盟店预约</a></li>
+                        <li><a href="/node/3729" data-drupal-link-system-path="node/3729">优质门店</a></li>
+                    </ul>
+                </li>
+                <li><a href="/node/161">车主服务</a>
+                    <ul class="menu sub-nav">
+                        <li><a href="/enquiry" data-drupal-link-system-path="enquiry">质保查询</a></li>
+                        <li><a href="/node/182" data-drupal-link-system-path="node/182">产品验真</a></li>
+                        <li><a href="/node/186" data-drupal-link-system-path="node/186">积分俱乐部</a></li>
+                    </ul>
+                </li>
+                <li><a href="/node/191">公司介绍</a>
+                    <ul class="menu sub-nav">
+                        <li><a href="/node/3675" title="相关认证" data-drupal-link-system-path="node/3675">行业认证</a></li>
+                        <li><a href="/node/3696" data-drupal-link-system-path="node/3696">成功案例</a></li>
+                        <li><a href="/news" data-drupal-link-system-path="news">新闻动态</a></li>
+                        <li><a href="/node/3718" data-drupal-link-system-path="node/3718">战略合作伙伴</a></li>
+                        <li><a href="/node/3720" data-drupal-link-system-path="node/3720">联系我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end mobile nav -->
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/68","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"zh-hans","currentQuery":{"bd_vid":"7714234104913440450","renqun_youhua":"446694"}},"pluralDelimiter":"\u0003","responsive_menu":{"position":"left","theme":"theme-dark","breakpoint":"all and (min-width: 768px)","superfish":{"active":false,"delay":300,"speed":100,"speedOut":100},"mediaQuery":"all and (min-width: 768px)"},"google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackDomainMode":1},"ajaxTrustedUrl":{"\/search\/node":true},"user":{"uid":0,"permissionsHash":"e138614a9474e7c6e6e07362c7f8621d0ebd3a6b1a00073c55159c3dad22bf52"}}</script>
+<script src="__TMPL__/public/js/ready.min.js?v=1.0.8"></script>
+<script src="__TMPL__/public/js/jquery.min.js?v=2.2.4"></script>
+<script src="__TMPL__/public/js/jquery.once.min.js?v=2.1.1"></script>
+<script src="__TMPL__/public/js/drupalSettingsLoader.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/zh-hans_bOYktsqYv3_ZJey2viV95XSmzi0zOCQ8d_SnqqgUbg0.js?pybx2d"></script>
+<script src="__TMPL__/public/js/drupal.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/drupal.init.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/responsive_menu.config.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/jquery.mmenu.all.min.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/google_analytics.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/jquery.cookie.min.js?v=1.4.1"></script>
+<script src="__TMPL__/public/js/affix.js?pybx2d"></script>
+<script src="__TMPL__/public/js/alert.js?pybx2d"></script>
+<script src="__TMPL__/public/js/button.js?pybx2d"></script>
+<script src="__TMPL__/public/js/dropdown.js?pybx2d"></script>
+<script src="__TMPL__/public/js/tab.js?pybx2d"></script>
+<script src="__TMPL__/public/js/transition.js?pybx2d"></script>
+<script src="__TMPL__/public/js/slick.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/lity.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/videojs-ie8.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/video.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/wow.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/icheck.min.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/main.js?pybx2d"></script>
+<script src="__TMPL__/public/js/image-svg.js?pybx2d"></script>
+<script src="__TMPL__/public/js/circle-progress.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/circle-custom.js?pybx2d"></script>
+
+            <div id="back-to-top">
+              <a href="#">
+                <div class="arrows-text">
+                  回到顶部
+                </div>
+                <span href="#" class="fa fa-arrow-up fa-lg"></span>
+              </a>
+            </div>
+          </body>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-48132667-1');
+          </script>
+
+        </html>

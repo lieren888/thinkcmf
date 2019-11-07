@@ -1,0 +1,212 @@
+{
+    "name": "首页",
+    "action": "cms/Index/index",
+    "description": "首页模板文件",
+    "order": 5.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets":{
+            "articles_customer": {
+                "title": "客户的满意是他们最大的追求",
+                "display": "1",
+                "vars": {
+                    "articles_customer_sub_title": {
+                        "title": "副标题",
+                        "value": "旅行不是一次出行，也不只是一个假期。旅行是一个过程，一次发现。是一个自我发现的过程。真正的旅行让我们直面自我。<br/>旅行不仅让我们看到世界，更让我们看到自己在其中的位置。",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "articles_customer_piclist": {
+                        "title": "三张图标",
+                        "value": [
+                            {
+                                "title": "行程定制",
+                                "icon": "",
+                                "url":"#",
+                                "content": "择维京游轮，您不仅能享受到搭乘内河游轮游览欧洲的美妙体验，品尝地道中西美食、巡游人文景观。"
+                            },
+                            {
+                                "title": "贴心服务",
+                                "icon": "",
+                                "url":"#",
+                                "content": "选择维京游轮，我们相信假期应该是彻底的放松。"
+                            },
+                            {
+                                "title": "贴心服务",
+                                "icon": "",
+                                "url":"#",
+                                "content": "对于维京游轮的服务人员而言，我们重要的工作就是让您感受到舒适和照顾。"
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "icon": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "url": {
+                                "title": "链接",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "articles_line": {
+                "title": "游记推荐",
+                "display": "1",
+                "vars": {
+                    "articles_line_sub_title": {
+                        "title": "副标题",
+                        "value": "旅行，自由。没有繁琐的计划，没有沉重的负担，只有最纯粹的态度。",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "articles_line_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "cms/channel/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "articles_service": {
+                "title": "我们的服务",
+                "display": "1",
+                "vars": {
+                    "articles_service_sub_title": {
+                        "title": "副标题",
+                        "value": "旅行不是一次出行，也不只是一个假期。旅行是一个过程，一次发现。是一个自我发现的过程。真正的旅行让我们直面自我。旅行不仅让我们看到世界，更让我们看到自己在其中的位置。",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "articles_service_image": {
+                        "title": "图片",
+                        "value": "",
+                        "type": "image",
+                        "tip": "",
+                        "rule": { 
+                            "require": true
+                        },
+                        "message":{
+                            "require":"不能为空"
+                        }
+                    },
+                    "articles_service_txtlist": {
+                        "title": "文字介绍",
+                        "value": [
+                            {
+                                "title": "高效快捷的提供商系统应用，聚集了2000+家各地的供应商"
+                            },
+                            {
+                                "title": "资源丰富，超过200万条旅游路线供你选择"
+                            },
+                            {
+                                "title": "八大核心保障， 选我们更放心"
+                            },
+                            {
+                                "title": "我们与旅游战略品牌联盟，合作了很多很多战略伙伴"
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "articles_trip": {
+                "title": "让旅游者快乐愉快的旅行",
+                "display": "1",
+                "vars": {
+                    "articles_trip_sub_title": {
+                        "title": "副标题",
+                        "value": "旅行不是一次出行，也不只是一个假期。旅行是一个过程，一次发现。是一个自我发现的过程。真正的旅行让我们直面自我。<br>旅行不仅让我们看到世界，更让我们看到自己在其中的位置。",
+                        "type": "textarea",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "articles_trip_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "cms/channel/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -16,6 +16,7 @@ class IndexController extends HomeBaseController
 {
     public function index()
     {
+    	$this->assign('ishome',1);
         return $this->fetch(':index');
     }
 }
