@@ -41,9 +41,12 @@
               <volist name="menus" id="r">
                 <li>
                   <a href="{$r.href}">{$r.name}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                  <if condition="$r[children]">
+                <?php
+                  $carray=$r['children'];
+                 ?>
+                  <if condition="$carray">
                   <ul class="menu sub-nav">
-                    <volist name="r[children]" id="vo">
+                    <volist name="carray" id="vo">
                       <li><a href="{$vo.href}" data-drupal-link-system-path="{$vo.href}">{$vo.name}</a></li>
                     </volist>
                   </ul>
