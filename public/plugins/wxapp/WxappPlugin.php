@@ -18,10 +18,10 @@ class WxappPlugin extends Plugin
         'title'       => '微信小程序',
         'description' => '微信小程序管理工具',
         'status'      => 1,
-        'author'      => 'ThinkCMF',
+        'author'      => 'Tzolkin',
         'version'     => '1.0',
-        'demo_url'    => 'http://demo.thinkcmf.com',
-        'author_url'  => 'http://www.thinkcmf.com'
+        'demo_url'    => '',
+        'author_url'  => ''
     ];
 
     public $hasAdmin = 1;//插件是否有后台管理界面

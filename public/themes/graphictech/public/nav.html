@@ -3,7 +3,7 @@
     <div class="container">
       <div class="region region-header-top">
         <a class="logo pull-left" href="/" title="首页" rel="home">
-          <img data-src-origin="https://solargard.saint-gobain.com.cn/themes/custom/solargard/logo.png" data-src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/images/logo-white.png" src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/logo.png" alt="首页" />
+          <img  src="__TMPL__/public/images/gtlogo.png" alt="首页" />
         </a>
         <div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-solargard-search" role="search">
           <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
@@ -18,9 +18,6 @@
           <div class="field field--name-link field--type-link field--label-hidden field--item"><a href="http://www.solargard.com" target="_blank">ENGLISH</a></div>
         </section>
       </div>
-        <a class="logo-saint-gobain" href="http://www.saint-gobain.com.cn/" target="_blank">
-          <div><img src="https://solargard.saint-gobain.com.cn/themes/custom/solargard/images/logo-st-gobain.png" alt="" title=""></div>
-        </a>
     </div>
   </div>
   <header id="navbar" role="banner">
@@ -40,10 +37,10 @@
             <ul id="horizontal-menu" class="horizontal-menu">
               <volist name="menus" id="r">
                 <li>
-                  <a href="{$r.href}">{$r.name}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 <?php
                   $carray=$r['children'];
                  ?>
+                  <a href="{$r.href}">{$r.name} <if condition="$carray"><i class="fa fa-angle-down" aria-hidden="true"></i></if></a>
                   <if condition="$carray">
                   <ul class="menu sub-nav">
                     <volist name="carray" id="vo">
@@ -53,39 +50,6 @@
                   </if>
                 </li>
               </volist>
-              <li>
-                <a href="/node/153">建筑膜<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                <ul class="menu sub-nav">
-                  <li><a href="/node/153" data-drupal-link-system-path="node/153">建筑膜</a></li>
-                  <li><a href="/node/3678" data-drupal-link-system-path="node/3678">建筑膜科普课堂</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="/map">加盟店网络<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                <ul class="menu sub-nav">
-                  <li><a href="/map" data-drupal-link-system-path="map">加盟店查询</a></li>
-                  <li><a href="/form/order" data-drupal-link-system-path="webform/order">加盟店预约</a></li>
-                  <li><a href="/node/3729" data-drupal-link-system-path="node/3729">优质门店</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="/node/161">车主服务<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                <ul class="menu sub-nav">
-                  <li><a href="/enquiry" data-drupal-link-system-path="enquiry">质保查询</a></li>
-                  <li><a href="/node/182" data-drupal-link-system-path="node/182">产品验真</a></li>
-                  <li><a href="/node/186" data-drupal-link-system-path="node/186">积分俱乐部</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="/node/191">公司介绍<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                <ul class="menu sub-nav">
-                  <li><a href="/node/3675" title="相关认证" data-drupal-link-system-path="node/3675">行业认证</a></li>
-                  <li><a href="/node/3696" data-drupal-link-system-path="node/3696">成功案例</a></li>
-                  <li><a href="/news" data-drupal-link-system-path="news">新闻动态</a></li>
-                  <li><a href="/node/3718" data-drupal-link-system-path="node/3718">战略合作伙伴</a></li>
-                  <li><a href="/node/3720" data-drupal-link-system-path="node/3720">联系我们</a></li>
-                </ul>
-              </li>
             </ul>
           </nav>
         </section>

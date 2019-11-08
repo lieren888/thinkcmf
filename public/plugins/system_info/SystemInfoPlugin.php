@@ -19,7 +19,7 @@ class SystemInfoPlugin extends Plugin
         'title'       => '系统信息',
         'description' => '系统信息',
         'status'      => 1,
-        'author'      => 'ThinkCMF',
+        'author'      => 'Tzolkin',
         'version'     => '1.0'
     ];
 

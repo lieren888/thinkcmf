@@ -8,96 +8,49 @@
     <include file="public@head" />
     <hook name="before_head_end" />
 </head>
-
 <body>
-    <div class="fh5co-loader"></div>
-
-    <div id="page">
-
-        <include file="public@nav" />
-
-        <php>
-            $top_slide_id=empty($theme_vars['inner_slide_page_contact'])?1:$theme_vars['inner_slide_page_contact'];
-        </php>
-        <slides id="$top_slide_id">
-            <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner"
-                style="background-image:url('{:cmf_get_image_url($vo.image)}');">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center">
-                            <div class="display-t">
-                                <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                                    <h1>{$page.title}</h1>
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+              <section>
+                <a id="main-content"></a>
+                <div class="region region-content">
+                  <article data-history-node-id="3720" role="article" about="/node/3720" class="landing-page full clearfix">
+                    <div class="content">
+                      <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                        <div class="field--item">
+                          <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                            <div class="zoom-box banner-image-container">
+                              <div class="banner-image zoom zoom-5-2" style="background-image: url({$page['more']['thumbnail']? cmf_get_image_url($page['more']['thumbnail']) : 'public/themes/pulbic/images/banner-news.jpg'});">
+                                <div class="banner-image-box">
+                                  <div class="banner-image-text">
+                                    <h2 class="wow fadeIn" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;"></h2>
+                                    <div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;"></div>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
-                    </div>
-                </div>
-            </header>
-        </slides>
-
-        <div id="fh5co-contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-md-push-1 animate-box">
-
-                        <div class="fh5co-contact-info">
-                            <h3>地址</h3>
-                            <ul>
-                                <li class="address">{$theme_vars.address_cn|default=''}</li>
-                                <li class="phone">
-                                    <a href="tel://{$theme_vars.phone_cn|default=''}">{$theme_vars.phone_cn|default=''}</a>
-                                </li>
-                                <li class="email">
-                                    <a href="mailto:{$theme_vars.email|default=''}">{$theme_vars.email|default=''}</a>
-                                </li>
-                            </ul>
-                            {$page.content}
+                        <div class="field--item">
+                          <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                            <div class="holder">
+                              <div class="container">
+                                {$page.content}
+                              </div>
+                            </div>
+                          </div>
                         </div>
-
+                      </div>
                     </div>
-                    <div class="col-md-6 animate-box">
-                        <h3>留言</h3>
-                        <form action="#">
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <!-- <label for="fname">First Name</label> -->
-                                    <input type="text" id="fname" class="form-control" placeholder="姓名">
-                                </div>
-                                <div class="col-md-6">
-                                    <!-- <label for="lname">Last Name</label> -->
-                                    <input type="text" id="lname" class="form-control" placeholder="电话">
-                                </div>
-                            </div>
-
-                            <div class="row form-group">
-                                <div class="col-md-12">
-                                    <!-- <label for="email">Email</label> -->
-                                    <input type="text" id="email" class="form-control" placeholder="邮箱">
-                                </div>
-                            </div>
-
-                            <div class="row form-group">
-                                <div class="col-md-12">
-                                    <!-- <label for="message">Message</label> -->
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"
-                                        placeholder="留言"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="提交" class="btn btn-primary">
-                            </div>
-
-                        </form>
-                    </div>
+                  </article>
                 </div>
-
+              </section>
             </div>
+            <include file='public@footer' />
         </div>
     </div>
-
-    <include file="public@footer" />
     <include file="public@scripts" />
     <hook name="before_body_end" />
 </body>

@@ -21,10 +21,10 @@ class CmsPlugin extends Plugin
         'title'       => 'CMS内容管理系统',
         'description' => 'CMS内容管理系统（带模板展示）',
         'status'      => 1,
-        'author'      => 'LeoXie',
+        'author'      => '猎仁',
         'version'     => '1.0.0',
-        'demo_url'    => 'http://t.xiechihua.com',
-        'author_url'  => 'http://www.xiechihua.com',
+        'demo_url'    => 'http://www.lightseacloud.com',
+        'author_url'  => 'http://www.lightseacloud.com',
     ];
 
     // 插件安装
