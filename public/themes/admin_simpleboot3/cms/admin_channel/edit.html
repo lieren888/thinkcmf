@@ -86,7 +86,24 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="input-description">首页展示图</label>
+                            <div>
+                                <input type="hidden" name="thumb" class="form-control"
+                                    value="{$thumb|default=''}" id="js-thumb-input">
+                                <div>
+                                    <a href="javascript:uploadOneImage('图片上传','#js-thumb-input');">
+                                        <if condition="empty($thumb)">
+                                            <img src="__TMPL__/public/assets/images/default-thumbnail.png"
+                                                id="js-thumb-input-preview" width="135" style="cursor: pointer" />
+                                            <else />
+                                            <img src="{:cmf_get_image_preview_url($thumb)}"
+                                                id="js-thumb-input-preview" width="135" style="cursor: pointer" />
+                                        </if>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group type-channel-list">
                             <label for="input-keywords">关键字</label>
                             <div>
