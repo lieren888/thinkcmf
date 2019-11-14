@@ -795,3 +795,25 @@ ul.menu.mm-listview a.is-active {
 .st0 {fill: #fff}
 .st2 {display: inline}
 .st4 {font-size: 30px;color: #fff}
+
+
+.conceptPart1{ padding:60px 0;}
+.conceptPart1 .title{ text-align:center; font-size:30px; color:#333; background:url(http://www.lancai-int.com/style/images/ico4.jpg) center bottom no-repeat; height:60px;}
+.conceptPart1 .content{ font-size:16px; line-height:38px; padding:20px 168px 0; text-align:center;}
+
+.conceptPart2{ background:url(http://www.lancai-int.com/style/images/concept2.jpg) center top no-repeat; height:320px; padding-top:95px;}
+.conceptPart2 .title{ text-align:center; font-size:30px; color:#333; background:url(http://www.lancai-int.com/style/images/ico4.jpg) center bottom no-repeat; height:60px; color:#fff;}
+.conceptPart2 .content{ font-size:16px; line-height:38px; padding-top:36px; text-align:center; color:#fff;}
+
+.conceptPart3{ padding-top:60px;}
+.conceptPart3 .title{ text-align:center; font-size:30px; padding-bottom:70px;}
+.conceptPart3 .list li{ width:33%; height:240px; float:left; text-align:center; font-size:16px; line-height:38px; border-right:#dedede solid 1px;}
+.conceptPart3 .list li .box{ height:240px;}
+.conceptPart3 .list li:last-child{ border-right:none;}
+.conceptPart3 .list li.li01{ text-align:left;}
+.conceptPart3 .list li.li01 .box{ width:230px; text-align:center;}
+.conceptPart3 .list li.li02{ text-align:right;}
+.conceptPart3 .list li.li02 .box{ width:160px; text-align:center; float:right;}
+.conceptPart3 .list li .ico{ padding-bottom:20px;}
+.list ul,.list ul li{list-style: none;margin:0;padding:0;}
+.list .box .mag{text-align: center;}
