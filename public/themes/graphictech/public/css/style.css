@@ -778,7 +778,8 @@ ul.menu.mm-listview a.is-active {
 .mm-panel a:hover {
   border: none;
 }
-.banner-image-container,.banner-image{height:100%;}
+
+.page-banner .banner-image-container,.page-banner .banner-image,.content .banner-image-container .banner-image .banner-image-box{height:auto;max-height: 500px;}
 .st0desktop {opacity: .7;fill: #000}
 .st1desktop {opacity: .7;fill: #6e6b68} 
 .st2desktop {clip-path: url(#SVGID_2_);fill: #fff}
@@ -801,7 +802,7 @@ ul.menu.mm-listview a.is-active {
 .conceptPart1 .title{ text-align:center; font-size:30px; color:#333; background:url(http://www.lancai-int.com/style/images/ico4.jpg) center bottom no-repeat; height:60px;}
 .conceptPart1 .content{ font-size:16px; line-height:38px; padding:20px 168px 0; text-align:center;}
 
-.conceptPart2{ background:url(http://www.lancai-int.com/style/images/concept2.jpg) center top no-repeat; height:320px; padding-top:95px;}
+.conceptPart2{ /*background:url(http://www.lancai-int.com/style/images/concept2.jpg) center top no-repeat; */background-color: #999999;height:320px; padding-top:95px;}
 .conceptPart2 .title{ text-align:center; font-size:30px; color:#333; background:url(http://www.lancai-int.com/style/images/ico4.jpg) center bottom no-repeat; height:60px; color:#fff;}
 .conceptPart2 .content{ font-size:16px; line-height:38px; padding-top:36px; text-align:center; color:#fff;}
 
@@ -817,3 +818,16 @@ ul.menu.mm-listview a.is-active {
 .conceptPart3 .list li .ico{ padding-bottom:20px;}
 .list ul,.list ul li{list-style: none;margin:0;padding:0;}
 .list .box .mag{text-align: center;}
+.footershare i.fa{font-size: 55px;margin:0 10px;margin-top:30px;}
+@media screen and (max-width: 768px){
+  .footershare i.fa{font-size: 32px;}
+  .conceptPart1 .content{padding:0 2%;}
+  .page .banner-image-container .banner-image{padding-top: 40% !important;}
+  .conceptPart1,.conceptPart2,.conceptPart3{height:auto;}
+  .conceptPart1,.conceptPart2,.conceptPart3{padding:20px 0;}
+  .conceptPart1 .title,.conceptPart2 .title,.conceptPart3 .title{font-size: 22px;}
+.conceptPart3 .list li{font-size: 13px;line-height: 26px;}
+}
+@media only screen and (min-width: 768px){
+  .page-banner .zoom-box .zoom.zoom-5-2{padding-top: 500px;}
+}
