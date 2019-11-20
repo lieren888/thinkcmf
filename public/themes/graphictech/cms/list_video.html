@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>首页 {$site_info.site_name|default='GT车膜'}</title>
+    <meta name="description" content="{$site_info.description|default='GT车膜'}" />
+    <meta name="keywords" content="{$site_info.keywords|default='GT车膜'}" />
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+  <body class="path-frontpage page-node-type-landing-page">
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+                <section>  
+                    <a id="main-content"></a>
+                    <div class="region region-content">
+                        <article >
+                            <div class="content">
+                                <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                                  <!-- 精彩视频 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="video-lity holder">
+                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">精彩视频</div>
+                                                <div class="container">
+                                                    <div class="row">
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u7_0.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-0" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>品牌愿景</h4>
+                                                         </div>
+                                                        <div id="video-lity-0" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/commercial_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                            <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u2.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-1" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>厂商探秘</h4>
+                                                          </div>
+                                                        <div id="video-lity-1" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/howto.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/WechatIMG5671.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-2" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>新品推荐</h4>
+                                                        </div>
+                                                        <div id="video-lity-2" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end精彩视频 -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <include file='public@footer' />
+        </div>
+    </div>
+    <include file='public@scripts' />
+    <hook name="before_body_end" />
+  </body>
+</html>
