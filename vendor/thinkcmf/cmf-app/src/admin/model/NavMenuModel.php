@@ -108,7 +108,7 @@ class NavMenuModel extends Model
         $tree->nbsp = '&nbsp;';
 
         $navs = $this->getNavData();
-
+        // var_dump($navs);exit;
         foreach ($navs as $key => $navData) {
             $tree->init($navData['items']);
             $tpl                = "<option value='\$rule' data-name='\$name'>\$spacer\$name</option>";

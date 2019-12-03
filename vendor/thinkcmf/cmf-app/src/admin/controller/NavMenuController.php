@@ -116,6 +116,7 @@ class NavMenuController extends AdminBaseController
         $this->assign("nav_trees", $navTrees);
 
         $navs = $navMenuModel->selectNavs();
+        
         $this->assign('navs', $navs);
 
         $this->assign("nav_id", $intNavId);
@@ -139,13 +140,13 @@ class NavMenuController extends AdminBaseController
     {
         $navMenuModel = new NavMenuModel();
         $arrData      = $this->request->post();
-
         if (isset($arrData['external_href'])) {
             $arrData['href'] = htmlspecialchars_decode($arrData['external_href']);
         } else {
             $arrData['href'] = htmlspecialchars_decode($arrData['href']);
             $arrData['href'] = base64_decode($arrData['href']);
         }
+        var_dump($arrData);exit;
 
         $navMenuModel->allowField(true)->isUpdate(false)->save($arrData);
 
