@@ -1,0 +1,61 @@
+    <!-- mobile nav -->
+    <div class="off-canvas-wrapper">
+        <div id="off-canvas">
+            <ul class="menu">
+                <volist name="menus" id="r">
+                    <?php
+                      $carray=$r['children'];
+                     ?>
+                    <li><a href="{$r.href}">{$r.name}</a>
+                        <if condition="$carray">
+                            <ul class="menu sub-nav">
+                                <volist name="carray" id="vo">
+                                <li><a href="{$vo.href}" data-drupal-link-system-path="{$vo.href}">{$vo.name}</a></li>
+                                </volist>
+                            </ul>
+                        </if>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <!-- end mobile nav -->
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"/","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"zh-hans","currentQuery":{"bd_vid":"7714234104913440450","renqun_youhua":"446694"}},"pluralDelimiter":"\u0003","responsive_menu":{"position":"left","theme":"theme-dark","breakpoint":"all and (min-width: 768px)","superfish":{"active":false,"delay":300,"speed":100,"speedOut":100},"mediaQuery":"all and (min-width: 768px)"},"google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackDomainMode":1},"ajaxTrustedUrl":{"\/search\/node":true},"user":{"uid":0,"permissionsHash":"e138614a9474e7c6e6e07362c7f8621d0ebd3a6b1a00073c55159c3dad22bf52"}}</script>
+<script src="__TMPL__/public/js/ready.min.js?v=1.0.8"></script>
+<script src="__TMPL__/public/js/jquery.min.js?v=2.2.4"></script>
+<script src="__TMPL__/public/js/jquery.once.min.js?v=2.1.1"></script>
+<script src="__TMPL__/public/js/drupalSettingsLoader.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/zh-hans_bOYktsqYv3_ZJey2viV95XSmzi0zOCQ8d_SnqqgUbg0.js?pybx2d"></script>
+<script src="__TMPL__/public/js/drupal.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/drupal.init.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/responsive_menu.config.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/jquery.mmenu.all.min.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/google_analytics.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/jquery.cookie.min.js?v=1.4.1"></script>
+<script src="__TMPL__/public/js/affix.js?pybx2d"></script>
+<script src="__TMPL__/public/js/alert.js?pybx2d"></script>
+<script src="__TMPL__/public/js/button.js?pybx2d"></script>
+<script src="__TMPL__/public/js/dropdown.js?pybx2d"></script>
+<script src="__TMPL__/public/js/tab.js?pybx2d"></script>
+<script src="__TMPL__/public/js/transition.js?pybx2d"></script>
+<script src="__TMPL__/public/js/slick.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/lity.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/videojs-ie8.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/video.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/wow.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/icheck.min.js?v=8.3.7"></script>
+<script src="__TMPL__/public/js/main.js?pybx2d"></script>
+<script src="__TMPL__/public/js/image-svg.js?pybx2d"></script>
+<if condition="isset($ishome) and $ishome">
+<script src="__TMPL__/public/js/circle-progress.min.js?pybx2d"></script>
+<script src="__TMPL__/public/js/circle-custom.js?pybx2d"></script>
+</if>
+            <div id="back-to-top">
+              <a href="#">
+                <div class="arrows-text">
+                  回到顶部
+                </div>
+                <span href="#" class="fa fa-arrow-up fa-lg"></span>
+              </a>
+            </div>

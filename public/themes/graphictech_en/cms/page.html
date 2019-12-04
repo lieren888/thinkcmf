@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$page.title}</title>
+    <meta name="keywords" content="{$page.keywords}" />
+    <meta name="description" content="{$page.description}">
+    <include file="public@head" />
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+              <section>
+                <a id="main-content"></a>
+                <div class="region region-content">
+                  <article data-history-node-id="" role="article" about="" class="landing-page full clearfix">
+                    <div class="content">
+                      <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                        <div class="field--item page-banner">
+                          <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                            <div class="zoom-box banner-image-container">
+                              <div class="banner-image zoom zoom-5-2" style="background-image: url({$page['more']['thumbnail']? cmf_get_image_url($page['more']['thumbnail']) : cmf_get_image_url('cms/20191119/3d77a98d61002c52af5daa86b0969b95.jpg')});">
+                                <div class="banner-image-box">
+                                  <div class="banner-image-text">
+                                    <h2 class="wow fadeIn" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;"></h2>
+                                    <div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="field--item">
+                          <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                            <div class="holder">
+                              <div class="container">
+                                {$page.content}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </div>
+            <include file='public@footer' />
+        </div>
+    </div>
+    <include file="public@scripts" />
+    <hook name="before_body_end" />
+</body>
+
+</html>

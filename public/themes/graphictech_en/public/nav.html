@@ -15,7 +15,7 @@
           </form>
         </div>
         <section id="block-englishversion" class="block block-block-content block-block-contentbb5c8564-81ad-45aa-b34b-108013da9f01 clearfix">
-          <div class="field field--name-link field--type-link field--label-hidden field--item"><a href="__ROOT__/?l=en" target="_blank">ENGLISH</a></div>
+          <div class="field field--name-link field--type-link field--label-hidden field--item"><a href="__ROOT__/?l=zh-cn" target="_blank">中文</a></div>
         </section>
       </div>
     </div>
@@ -31,16 +31,17 @@
         <section id="block-horizontalmenu" class="block block-responsive-menu block-responsive-menu-horizontal-menu clearfix">
             <?php
                 $navMenuModel = new \app\admin\model\NavMenuModel();
-                $menus = $navMenuModel->navMenusTreeArray("1", 0);
+                $menus = $navMenuModel->navMenusTreeArray("", 0);
             ?>
           <nav class="responsive-menu-block-wrapper">
             <ul id="horizontal-menu" class="horizontal-menu">
               <volist name="menus" id="r">
                 <li>
                 <?php
+                    $carray='';
                     $carray=$r['children'];
                  ?>
-                  <if condition="$r['target']"><a href="{$r.href}"  target="_blank" > <else/> <a href="{$r.href}" > </if>{$r.name} <if condition="$carray"><i class="fa fa-angle-down" aria-hidden="true"></i></if></a>
+                  <if condition="!$carray"><if condition="$r['target']"><a href="{$r.href}"  target="_blank" > <else/> <a href="{$r.href}" > </if><else /> <a href="javascript:;" > </if>{$r.name}<if condition="$carray"><i class="fa fa-angle-down" aria-hidden="true"></i></if></a>
                   <if condition="$carray">
                   <ul class="menu sub-nav">
                     <volist name="carray" id="vo">

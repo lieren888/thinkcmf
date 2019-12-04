@@ -1,0 +1,88 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>{$category.name}</title>
+    <meta name="keywords" content="{$category.keywords}" />
+    <meta name="description" content="{$category.description}">
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+  <body class="path-frontpage page-node-type-landing-page">
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+                <section>  
+                    <a id="main-content"></a>
+                    <div class="region region-content">
+                        <article >
+                            <div class="content">
+                                <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                                    <div class="field--item">
+                                      <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                        <div class="zoom-box banner-image-container">
+                                          <div class="banner-image zoom zoom-5-2" style="background-image: url({$category['more']['thumbnail']? cmf_get_image_url($category['more']['thumbnail']) : cmf_get_image_url('cms/20191119/3d77a98d61002c52af5daa86b0969b95.jpg')});">
+                                            <div class="banner-image-box">
+                                              <div class="banner-image-text">
+                                                <h2 class="wow fadeIn" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;"></h2>
+                                                <div class="wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;"></div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  <!-- 精彩视频 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="video-lity holder">
+                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">精彩视频</div>
+                                                <div class="container">
+                                                    <div class="row">
+                                                    <php>
+                                                        $where= function($query){
+                                                        $query->where('a.create_time','egt',0);
+                                                        };
+                                                        $page=[
+                                                        'list_rows'=>6,
+                                                        'next'=>'下一页',
+                                                        'prev'=>'上一页'
+                                                        ];
+                                                    </php>
+                                                     <cms:articles categoryIds="$category['id']" page="$page" relation="true">
+                                                        <div class="col-xs-12 col-md-4 text-center">
+                                                            <div class="zoom-box icon-play">
+                                                              <div class="zoom" style="background:url({$vo['more']['thumbnail']? cmf_get_image_url($vo['more']['thumbnail']) : cmf_get_image_url('cms/20191119/3d77a98d61002c52af5daa86b0969b95.jpg')})"></div>
+                                                              <i class="fa fa-play" href="#video-lity-0" data-lity aria-hidden="true"></i>
+                                                            </div>
+                                                            <h4>{$vo.title}</h4>
+                                                        </div>
+                                                        <div id="video-lity-0" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="{:cmf_get_image_url($vo.video)}" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                      </cms:articles>
+                                                        <!-- end 视频列表 -->
+                                                    </div>
+                                                  <ul class="pagination">
+                                                      <page />
+                                                  </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end精彩视频 -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <include file='public@footer' />
+        </div>
+    </div>
+    <include file='public@scripts' />
+    <hook name="before_body_end" />
+  </body>
+</html>

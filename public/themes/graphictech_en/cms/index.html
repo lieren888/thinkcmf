@@ -1,0 +1,252 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Home Page {$site_info.site_name|default='GrephicTech'}</title>
+    <meta name="description" content="{$site_info.description|default='GrephicTech'}" />
+    <meta name="keywords" content="{$site_info.keywords|default='GrephicTech'}" />
+    <include file="public@head" />
+    <hook name="before_head_end" />
+</head>
+  <body class="path-frontpage page-node-type-landing-page">
+    <div id="page-wrapper">
+        <div id="page">
+            <include file='public@nav' />
+            <div role="main" class="main-container js-quickedit-main-content">
+                <section>  
+                    <a id="main-content"></a>
+                    <div class="region region-content">
+                        <article >
+                            <div class="content">
+                                <div class="field field--name-element-par field--type-entity-reference-revisions field--label-hidden field--items">
+                                  <!-- 幻灯片 -->
+                                    <div class="field--item">  
+                                        <php>
+                                            $top_slide_id=empty($theme_vars['top_slide'])?7:$theme_vars['top_slide'];
+                                        </php>
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="showcase">
+                                                <slides id="$top_slide_id">
+                                                    <div>
+                                                      <div class="slide-item">
+                                                        <div class="slide-img" style="background-image:url({:cmf_get_image_url($vo.image)});" ></div>
+                                                        <div class="showcase-content">
+                                                            <h2>{$vo.title|default=''}</h2>
+                                                            <p class="showcase-info"></p>
+                                                            <a class="btn" href="{$vo.url|default=''}">Learn More</a>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </slides>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end幻灯片 -->
+                                  <!-- 品牌介绍 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="image-text above holder">
+                                              <div class="container">
+                                                <div class="image-text-content">
+                                                    <div class="image-text-text wow fadeIn"  data-wow-duration="1.5s">
+                                                        <p>GraphicTech Focus on vehicle body decoration materials. Products are manufactured by German-imported basic films, in strict accordance with international quality-controlled standards production procedure. We strive to create the most competitive professional car body graphic film, paint protection film, color wrapping film and other related products.</p>
+                                                        <p>GraphicTech win the high recognition of peers with excellent quality and market performance.</p>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end品牌介绍 -->
+                                  <!-- 应用场景 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                          <div class="icon-title-text yellow holder">
+                                              <div class="container">
+                                                <div class="img wow fadeInDown" data-wow-delay="0.2s">
+                                                  <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/%E8%87%BB%E9%9A%8F%E8%A1%8C.jpg" alt="">
+                                                  <div class="blueLine"></div>
+                                                </div>
+                                                <div class="row icon-title-text-warp">
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="0s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/home.png" >
+                                                        </div>
+                                                      <h5>Home Appliance</h5>
+                                                      <p>Thermal insulation comfortable, safe and explosion-proof, UV-proof, prevent furniture from fading, protect privacy, reduce glare</p>
+                                                    </div>
+                                                  </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/car.png" >
+                                                        </div>
+                                                      <h5>Automobile</h5>
+                                                      <p>Heat insulation, energy saving, UV isolation, improve driver comfort Car paint surface anti-corrosion, care you and car paint surface.</p>
+                                                    </div>
+                                                  </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                                    <div class="icon-title-text-content">
+                                                        <div class="icon-box wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s">
+                                                          <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/business.png" >
+                                                        </div>
+                                                      <h5>Business</h5>
+                                                      <p>Heat insulation and energy saving, safety and explosion proof,improve working efficiency and beautify the outside appearance of the building</p>
+                                                    </div>
+                                                  </div>
+                                                    <div class="col-sm-3 col-xs-6">
+                                                        <div class="icon-title-text-content">
+                                                            <div class="icon-box wow fadeIn" data-wow-duration="3s" data-wow-delay="0.3s">
+                                                              <img src="https://solargard.saint-gobain.com.cn/sites/default/files/images/icon/uv-protection.png" >
+                                                            </div>
+                                                          <h5>Safety</h5>
+                                                          <p>Invisible safety barrier, prevent paint scraping, splash water anti-foulingGerman / Chinese national standard certification, improve the safety level in an all-round way</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end应用场景 -->
+                                  <!-- 性能指标 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div id="chart" class="chart holder bg-lighter-blue">
+                                              <div class="container">
+                                                <h2 class="chart-title wow fadeInDown" data-wow-delay="0.25s">Performance Index</h2>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-0" data-to="79">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>Thermal Insulation</h3>
+                                                        <p>Super Heat Insulation<br>Improve In-car / Indoor Comfort</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-1" data-to="30">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>Energy Saving</h3>
+                                                        <p>Reduce Carbon Emissions Significantly</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-2" data-to="99">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>Reduce UV Emission</h3>
+                                                        <p>Super UV Protection<br>Anti-Sunscreen Index as high as SPF285+, Care Youself and the Paint</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3">
+                                                      <div class="chatr-content">
+                                                        <div class="number-box number-box-3" data-to="95">
+                                                          <strong></strong>
+                                                        </div>
+                                                        <h3>Anti-glare</h3>
+                                                        <p>Reduce Dazzling Glare Significatily<br>More Comfort and Safe</p>
+                                                      </div>
+                                                    </div>
+                                                    </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end性能指标 -->
+                                  <!-- 主要产品 -->
+                                    <div class="field--item">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="image-element holder bg-lighter-blue">
+                                              <div class="block-title wow fadeIn" data-wow-delay="0.5s">Main Brandes</div>
+                                              <div class="container">
+                                                <div class="row image-element-warpper">
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/ppfilms.html" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u18.png" alt=""></a>
+                                                        <h4><a href="/ppfilms.html" title="">Paint Protection Films</a></h4>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/wcfilms.html" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u21.png" alt=""></a>    
+                                                        <h4><a href="/wcfilms.html" title=""> Wrapping Color Films</a></h4>    
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/bodystickers.html" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u19.png" alt=""></a>
+                                                        <h4><a href="/bodystickers.html" title="">Body Designed Stickers</a></h4>
+                                                    </div>            
+                                                    <div class="col-xs-6 col-md-3 text-center zoom-box">
+                                                        <a href="/fisigns.html" title=""><img class="zoom-img" src="https://solargard.saint-gobain.com.cn/sites/default/files/images/image/u20.png" alt=""></a>
+                                                        <h4><a href="/fisigns.html" title="">Fleet Identifier Signs</a></h4>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                         </div>
+                                    </div>
+                                  <!-- 主要产品 -->
+                                  <!-- 精彩视频 -->
+                                    <div class="field--item" style="display:none;">  
+                                        <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="video-lity holder">
+                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">精彩视频</div>
+                                                <div class="container">
+                                                    <div class="row">
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u7_0.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-0" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>品牌愿景</h4>
+                                                         </div>
+                                                        <div id="video-lity-0" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/commercial_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                            <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/u2.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-1" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>厂商探秘</h4>
+                                                          </div>
+                                                        <div id="video-lity-1" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/howto.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                          <div class="col-xs-12 col-md-4 text-center">
+                                                              <div class="zoom-box icon-play">
+                                                                <div class="zoom" style="background:url(https://solargard.saint-gobain.com.cn/sites/default/files/images/video/WechatIMG5671.png)"></div>
+                                                                <i class="fa fa-play" href="#video-lity-2" data-lity aria-hidden="true"></i>
+                                                              </div>
+                                                              <h4>新品推荐</h4>
+                                                        </div>
+                                                        <div id="video-lity-2" class="lity-hide">
+                                                          <video class="video-js vjs-default-skin" controls preload="auto"  data-setup='{ "aspectRatio":"1280:720"}'>
+                                                            <source src="https://solargard.saint-gobain.com.cn/sites/default/files/videos/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91_0.mp4" type='video/mp4'></source>
+                                                          </video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <!-- end精彩视频 -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <include file='public@footer' />
+        </div>
+    </div>
+    <include file='public@scripts' />
+    <hook name="before_body_end" />
+  </body>
+</html>
