@@ -21,39 +21,39 @@
         <form class="form-light js-ajax-form messages" role="form" method="post"
               action="{:cmf_plugin_url('HzMsgBorad://Do/addmsg');}">
             <div class="messlist">
-                <label><font color="red">*</font>姓名</label>
-                <input type="text" required name="name" placeholder="姓名"/>
+                <label><font color="red">*</font>Name</label>
+                <input type="text" required name="name" placeholder="Please enter your name"/>
 
                 <div class="clears"></div>
             </div>
             <div class="messlist">
-                <label><font color="red">*</font>手机号</label>
-                <input type="text" required name="phone" placeholder="手机号"/>
+                <label><font color="red">*</font>Phone</label>
+                <input type="text" required name="phone" placeholder="Please enter your phone number"/>
 
                 <div class="clears"></div>
             </div>
             <div class="messlist">
-                <label>电子邮件</label>
-                <input type="text" name="email" placeholder="电子邮件"/>
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Please enter your email"/>
 
                 <div class="clears"></div>
             </div>
             <div class="messlist textareas">
-                <label><font color="red">*</font>留言内容</label>
-                <textarea name="msg" required placeholder="留言内容"></textarea>
+                <label><font color="red">*</font>content</label>
+                <textarea name="msg" required placeholder="content"></textarea>
 
                 <div class="clears"></div>
             </div>
             <div class="messlist yzms">
-                <label><font color="red">*</font>验证码</label>
-                <input type="text" name="verify" required placeholder="验证码" style="margin-right: 30px;"/>
+                <label><font color="red">*</font>Verification Code</label>
+                <input type="text" name="verify" required placeholder="Please enter your verification code" style="margin-right: 30px;"/>
                 <captcha height="30" width="120" font-size="16"/>
 
                 <div class="clears"></div>
             </div>
             <div class="messsub">
-                <button type="submit" class="btn btn-primary js-ajax-submit" style="background:#00a3eb;color:#fff;margin-top:-4px; height: 35px;" data-wait="1500">提交</button>
-                <input type="reset" value="重填"/>
+                <button type="submit" class="btn btn-primary js-ajax-submit" style="background:#00a3eb;color:#fff;margin-top:-4px; height: 35px;" data-wait="1500">Submit</button>
+                <input type="reset" value="Reset"/>
             </div>
 
 
