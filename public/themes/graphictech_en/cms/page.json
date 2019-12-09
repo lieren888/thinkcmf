@@ -5,7 +5,7 @@
     "order": 10.0,
     "more": {
         "vars": {
-            "inner_slide_page": {
+            "inner_slide_page_contact": {
                 "title": "顶部幻灯片",
                 "value": "",
                 "type": "text",
@@ -18,49 +18,37 @@
                 "rule": {
                     "require": true
                 }
+            },
+            "address_cn": {
+                "title": "公司地址",
+                "value": "上海市徐汇区斜土路0001号",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "phone_cn": {
+                "title": "公司电话",
+                "value": "021 1000 0001",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "email": {
+                "title": "公司邮箱",
+                "value": "catman@thinkcmf.com",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
             }
         },
         "widgets":{
-            "hottest_articles": {
-                "title": "热门文章",
-                "display": "1",
-                "vars": {
-                    "hottest_articles_category_id": {
-                        "title": "文章分类ID",
-                        "value": "",
-                        "type": "text",
-                        "dataSource": {
-                            "api": "portal/channel/index",
-                            "multi": true
-                        },
-                        "placeholder": "请选择分类",
-                        "tip": "",
-                        "rule": {
-                            "require": true
-                        }
-                    }
-                }
-            },
-            "last_articles": {
-                "title": "最新发布",
-                "display": "1",
-                "vars": {
-                    "last_articles_category_id": {
-                        "title": "文章分类ID",
-                        "value": "",
-                        "type": "text",
-                        "dataSource": {
-                            "api": "portal/channel/index",
-                            "multi": true
-                        },
-                        "placeholder": "请选择分类",
-                        "tip": "",
-                        "rule": {
-                            "require": true
-                        }
-                    }
-                }
-            }
+            
         }
     }
 }

@@ -6,7 +6,6 @@
     <meta name="keywords" content="{$page.keywords}" />
     <meta name="description" content="{$page.description}">
     <include file="public@head" />
-    <hook name="before_head_end" />
 </head>
 <body>
     <div id="page-wrapper">
@@ -35,22 +34,23 @@
                         </div>
                         <div class="field--item">
                           <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
-                            <div class="pageTop">
-                            <php>
-                              $menuschild = $menus['9']['children'];
-                            </php>                                
-                              <div class="wal">
-                                  <div class="pageNav">
-                                      <ul>
-                                        <volist name="menuschild" id="v">
-                                          <li><a href="{$v.href}" title="{$v.name}">{$v.name}</a></li>
-                                        </volist>      
-                                      </ul>
-                                  </div>
-                              </div>
-                            </div>
                             <div class="holder">
-                              <div class="contain">
+                              <div class="pageTop">
+                              <php>
+                                $menuschild = $menus['8']['children'];
+                              </php>                                
+                                <div class="wal">
+                                  <!-- <div class="pageNow"><a href="/" title="企业动态">首页 </a> &gt;  <a href="/html/news/dynamics.html">信息动态</a>&gt;<a href="/html/news/dynamics.html" class="this">企业动态</a> </div> -->
+                                    <div class="pageNav">
+                                        <ul>
+                                          <volist name="menuschild" id="v">
+                                            <li><a href="{$v.href}" title="{$v.name}">{$v.name}</a></li>
+                                          </volist>      
+                                        </ul>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="container">
                                 {$page.content}
                               </div>
                             </div>

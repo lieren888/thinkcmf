@@ -1,0 +1,24 @@
+{
+    "name": "单页面",
+    "action": "cms/Page/index",
+    "description": "GT服务栏目",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "inner_slide_page": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        }
+    }
+}

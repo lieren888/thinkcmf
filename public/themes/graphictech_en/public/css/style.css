@@ -831,3 +831,15 @@ ul.menu.mm-listview a.is-active {
 @media only screen and (min-width: 768px){
   .page-banner .zoom-box .zoom.zoom-5-2{padding-top: 500px;}
 }
+.pageTop{ height:54px; line-height:54px; border-bottom:#c7c7c7 solid 1px;}
+.pageTop .wal{ position:relative;width:90%;margin:0 auto;}
+.pageNow{ color:#a4a4a4; background:url(../images/nimg16_1.png) left center no-repeat; padding-left:30px;}
+.pageNow a{ color:#a4a4a4;margin:0 3px;}
+.pageNow a:hover{ text-decoration:underline;}
+.pageNow img{ position:relative; padding-right:8px; top:-2px;}
+.pageNow em,.pageNow a:last-child{ color:#01408f;}
+.pageNav{ position:absolute; right:0px; top:0px;}
+.pageNav ul{margin:0;padding:0;}
+.pageNav li{ height:54px; float:left; text-align:center; font-size:16px; margin-left:55px;list-style: none;}
+.pageNav li a{ color:#666; display:block; height:52px;text-decoration: none;}
+.pageNav li a:hover, .pageNav li a.aNow{ border-bottom:#01408f solid 3px; color:#01408f;}

@@ -35,8 +35,23 @@
                                   <!-- 精彩视频 -->
                                     <div class="field--item">  
                                         <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                            <div class="pageTop">
+                                            <php>
+                                              $menuschild = $menus['8']['children'];
+                                              
+                                            </php>                                
+                                              <div class="wal">
+                                                <!-- <div class="pageNow"><a href="/" title="企业动态">首页 </a> &gt;  <a href="/html/news/dynamics.html">信息动态</a>&gt;<a href="/html/news/dynamics.html" class="this">企业动态</a> </div> -->
+                                                  <div class="pageNav">
+                                                      <ul>
+                                                        <volist name="menuschild" id="v">
+                                                          <li><a href="{$v.href}" title="{$v.name}">{$v.name}</a></li>
+                                                        </volist>      
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                            </div>
                                             <div class="video-lity holder">
-                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">Fantasy Video</div>
                                                 <div class="container">
                                                     <div class="row">
                                                     <php>
