@@ -46,9 +46,11 @@ class CmsPageModel extends Model
         self::afterInsert(function ($row) {
             $row->save(['list_order' => $row['id']]);
             //注册路由
-            $routeModel = new RouteModel();
-            $routeModel->setRoute($row['alias'], 'cms/Page/index', ['id' => $row['id']], 2, 5000);
-            $routeModel->getRoutes(true);//强制刷新
+            if(isset($row['alias'])){
+                $routeModel = new RouteModel();
+                $routeModel->setRoute($row['alias'], 'cms/Page/index', ['id' => $row['id']], 2, 5000);
+                $routeModel->getRoutes(true);//强制刷新
+            }
         });
 
         /**
@@ -56,9 +58,11 @@ class CmsPageModel extends Model
          */
         self::afterUpdate(function ($row) {
             //注册路由
-            $routeModel = new RouteModel();
-            $routeModel->setRoute($row['alias'], 'cms/Page/index', ['id' => $row['id']], 2, 5000);
-            $routeModel->getRoutes(true);//强制刷新
+            if(isset($row['alias'])){
+                $routeModel = new RouteModel();
+                $routeModel->setRoute($row['alias'], 'cms/Page/index', ['id' => $row['id']], 2, 5000);
+                $routeModel->getRoutes(true);//强制刷新
+            }
         });
 
         /**
@@ -66,9 +70,11 @@ class CmsPageModel extends Model
          */
         self::afterDelete(function ($row) {
             //注册路由
-            $routeModel = new RouteModel();
-            $routeModel->deleteRoute('cms/Page/index', ['id' => $row['id']]);
-            $routeModel->getRoutes(true);//强制刷新
+            if(isset($row['alias'])){
+                $routeModel = new RouteModel();
+                $routeModel->deleteRoute('cms/Page/index', ['id' => $row['id']]);
+                $routeModel->getRoutes(true);//强制刷新
+            }
         });
     }
 

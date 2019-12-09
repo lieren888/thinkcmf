@@ -156,6 +156,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
      * @var array
      */
     protected $globalScope = [];
+    public  $icId='';
 
     /**
      * 架构函数
@@ -676,7 +677,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             // 获取自动增长主键
             if ($result && $insertId = $db->getLastInsID($sequence)) {
                 $pk = $this->getPk();
-
+                $this->icId=$insertId;
                 foreach ((array) $pk as $key) {
                     if (!isset($this->data[$key]) || '' == $this->data[$key]) {
                         $this->data[$key] = $insertId;

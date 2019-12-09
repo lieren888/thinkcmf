@@ -146,8 +146,32 @@ class NavMenuController extends AdminBaseController
             $arrData['href'] = htmlspecialchars_decode($arrData['href']);
             $arrData['href'] = base64_decode($arrData['href']);
         }
+        if(!$arrData['name']){
+            $this->error(lang("请输入必填项！"));
+        }
         $navMenuModel->allowField(true)->isUpdate(false)->save($arrData);
+        if(!isset($arrData['external_href'])){
+            $modelData=array();
+            $modelData['menuid']=$navMenuModel->icId;
+            $mdinfo=json_decode($arrData['href']);
+            if(isset($mdinfo->action)){
+                $mdstr=explode('/', $mdinfo->action);
+                $md='\\app\\cms\\model\\';
+                if(isset($mdstr['1'])&&$mdstr['0']&&$mdstr['1']){
+                    if($mdstr['1']=='Page'||$mdstr['1']=='page'){
+                        $md .=ucfirst($mdstr['0']).ucfirst($mdstr['1']).'Model';
+                    }else{
+                        $md .=ucfirst($mdstr['0']).'ChannelModel';
+                    }
+                    $modelx=new $md;
+                    if($modelx){
+                        $modelx->update($modelData,['id'=>$mdinfo->param->id],true);
+                    }
+                }
 
+            }
+            unset($modelData,$mdinfo,$mdstr,$md,$modelx);
+        }
         $this->success(lang("EDIT_SUCCESS"), url("NavMenu/index", ['nav_id' => $arrData['nav_id']]));
 
     }
@@ -240,8 +264,24 @@ class NavMenuController extends AdminBaseController
         } else {
             $arrData['href'] = htmlspecialchars_decode($arrData['href']);
             $arrData['href'] = base64_decode($arrData['href']);
+            $modelData=array();
+            $modelData['menuid']=$intId;
+            $mdinfo=json_decode($arrData['href']);
+            $mdstr=explode('/', $mdinfo->action);
+            $md='\\app\\cms\\model\\';
+            if(isset($mdstr['1'])&&$mdstr['0']&&$mdstr['1']){
+                if($mdstr['1']=='Page'||$mdstr['1']=='page'){
+                    $md .=ucfirst($mdstr['0']).ucfirst($mdstr['1']).'Model';
+                }else{
+                    $md .=ucfirst($mdstr['0']).'ChannelModel';
+                }
+                $modelx=new $md;
+                if($modelx){
+                    $modelx->update($modelData,['id'=>$mdinfo->param->id],true);
+                }
+            }
+            unset($modelData,$mdinfo,$mdstr,$md,$modelx);
         }
-
         $navMenuModel->update($arrData, ["id" => $intId], true);
 
         $this->success(lang("EDIT_SUCCESS"), url("NavMenu/index", ['nav_id' => $arrData['nav_id']]));
