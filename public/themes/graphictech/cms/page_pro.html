@@ -35,6 +35,23 @@
                         </div>
                         <div class="field--item">
                           <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                            <div class="pageTop">
+                            <php>
+                              $menuschild = $menus['3']['children'];
+                            </php>                                
+                              <div class="wal">
+                                  <div class="pageNav">
+                                      <ul>
+                                        <volist name="menuschild" id="v">
+                                          <li>
+                                            <if condition="$v['target']"><a href="{$v.href}"  target="_blank" > <else/> <a href="{$v.href}" title="{$v.name}"> </if>
+                                            {$v.name}</a>
+                                          </li>
+                                        </volist>      
+                                      </ul>
+                                  </div>
+                              </div>
+                            </div>
                             <div class="holder">
                               <div class="contain">
                                 {$page.content}

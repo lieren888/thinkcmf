@@ -1,87 +1,280 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn" >
 <head>
-    <meta charset="UTF-8"/>
-    <title>GT车膜管理登录</title>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="robots" content="noindex,nofollow">
-    <!-- HTML5 shim for IE8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <![endif]-->
-    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/bootstrap.min.css" rel="stylesheet">
-    <link href="__STATIC__/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/login.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script>
-        if (window.parent !== window.self) {
-            document.write              = '';
-            window.parent.location.href = window.self.location.href;
-            setTimeout(function () {
-                document.body.innerHTML = '';
-            }, 0);
-        }
-    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta name="renderer" content="webkit"/>
+<meta name="HandheldFriendly" content="true"/>
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="shortcut icon" href="/favicon.ico" /><title>GraphicTech - 后台管理系统</title>
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/layui.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/global.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/animate.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/login.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/login/loaders.css" />
+<script type="text/javascript">var wwwroot='/';var absroot='/';var module_name='admin';</script>
+<script type="text/javascript" src="__TMPL__/public/assets/login/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/login/layui.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/login/global.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/login/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/login/loaders.css.js"></script>
 </head>
 <body>
-<div class="wrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <h1 class="text-center">GT车膜管理登录</h1>
-                <form class="js-ajax-form" action="{:url('public/doLogin')}" method="post">
-                    <div class="form-group">
-                        <input type="text" id="input_username" class="form-control" name="username"
-                               placeholder="{:lang('USERNAME_OR_EMAIL')}" title="{:lang('USERNAME_OR_EMAIL')}"
-                               value="{:cookie('admin_username')}" data-rule-required="true" data-msg-required="">
-                    </div>
 
-                    <div class="form-group">
-                        <input type="password" id="input_password" class="form-control" name="password"
-                               placeholder="{:lang('PASSWORD')}" title="{:lang('PASSWORD')}" data-rule-required="true"
-                               data-msg-required="">
-                    </div>
+<!--[if lt IE 10]> 
+<p style="text-align: center;padding-top:100px;">请使用高版本浏览器进入后台管理（建议浏览器：Firefox、Chrome）</p>
+<p><a href="http://www.firefox.com.cn/">下载Firefox浏览器</a></p>
+<p><a href="http://www.google.cn/chrome/browser//">下载Chrome浏览器</a></p>
+<div style="display:none">
+<![endif]--> 
 
-                    <div class="form-group">
-                        <div style="position: relative;">
-                            <input type="text" name="captcha" placeholder="验证码" class="form-control captcha">
-                            <captcha height="32" width="150" font-size="18"
-                                     style="cursor: pointer;position:absolute;right:1px;top:1px;"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="hidden" name="redirect" value="">
-                        <button class="btn btn-primary btn-block js-ajax-submit" type="submit" style="margin-left: 0px"
-                                data-loadingmsg="{:lang('LOADING')}">
-                            {:lang('LOGIN')}
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
+<div id="login">
+    <h1>
+         <strong><span class="en-font">GraphicTech</span>内容管理系统后台</strong>
+         <em class="en-font">Management System</em>
+    </h1>
+    
+    <div class="user info">
+        <label>U</label>
+        <input type="text" name="data[User][username]" value="" id="UserUsername"  class="en-font" placeholder="账号" autocomplete="off">
     </div>
+    <div class="pwd info">
+        <label>P</label>
+        <input type="password" name="data[User][password]" value="" id="UserPassword"  class="en-font" placeholder="密码" autocomplete="off">
+    </div>
+    <div class="code info">
+        <label>V</label>
+        <input type="text" name="captcha" value="" id=""  class="en-font" autocomplete="off" placeholder="验证码">
+        <span class="vimg"><img  src="/captcha.html" id="captchaimg" class="tooltip" onclick="this.src='/captcha.html?'+Math.random()"/></span>
+    </div>
+    <div class="sub">
+        <input  type="submit" id="loginSubmit" value="立即登录"/>
+    </div>
+    <div class="copy"><a href="https://www.lancai-int.com/" target="_blank">© GraphicTech 版权所有</a></div>
 </div>
+<div class="auth">
+    <div class="loading"><div class="loader-inner ball-clip-rotate-multiple"></div></div>
+    <p>验证中...</p>
+</div>
+
+
+
 <script type="text/javascript">
-    //全局变量
-    var GV = {
-        ROOT: "__ROOT__/",
-        WEB_ROOT: "__WEB_ROOT__/",
-        JS_ROOT: "static/js/",
-        APP: ''/*当前应用名*/
-    };
+layui.use(['layer', 'carousel'],function(){
+    'use strict';
+    var layer=layui.layer;
+    
+        
+});
+
+$('body').keydown(function(e){
+    if (e.keyCode == 13) {
+        $('#loginSubmit').trigger('click') ;
+    }
+})
+
+var isLogining = false;
+$('#loginSubmit').click(function(){
+    if (isLogining) return false;
+    isLogining = true;
+    layer.closeAll();
+    var username = $.trim($('#UserUsername').val());
+    if (!username) {
+        layer.alert('请填写用户名', {
+            shade : 0,
+            anim : 2,
+            offset : '10px',
+            time : 3000,
+            icon : 2
+        });
+        isLogining = false;
+        return false;
+    }
+    var password = $.trim($('#UserPassword').val());
+    if (!password) {
+        layer.alert('请填写密码', {
+            shade : 0,
+            anim : 2,
+            offset : '10px',
+            time : 3000,
+            icon : 2
+        });
+        isLogining = false;
+        return false;
+    }
+    var captcha = $.trim($('input[name="captcha"]').val());
+    if (!captcha) {
+        layer.alert('请填写验证码', {
+            shade : 0,
+            anim : 2,
+            offset : '10px',
+            time : 3000,
+            icon : 2
+        });
+        isLogining = false;
+        return false;
+    }
+    
+    $('#login').addClass('checking');
+    setTimeout(function(){
+        $('#login').animate({
+            'margin-left' : -450
+        }, 200, 'easeOutQuint')
+        $('.auth').addClass('checking');
+    }, 500)
+    
+    setTimeout(function(){
+        $.post("/admin/public/doLogin.html",{
+            username : username,
+            password : password,
+            captcha : captcha
+        }, function(data){
+            isLogining = false;
+            var json = data;
+            if (json['code'] == '1') {
+                layer.alert(json['msg'], {
+                    shade : 0,
+                    anim : 2,
+                    offset : '10px',
+                    time : 3000,
+                    title:'成功',
+                    icon: 6
+                });
+                setTimeout(function(){
+                    location.href = json['url'];
+                }, 800)
+                
+                
+            } else {
+                $('#login').animate({
+                    'margin-left' : -180
+                }, 200, 'easeOutQuint')
+                $('.auth').removeClass('checking');
+                setTimeout(function(){
+                    $('#login').removeClass('checking');                    
+                }, 250)
+                setTimeout(function(){
+                    $('#captchaimg').trigger('click');
+                    layer.alert(json['msg'], {
+                        shade : 0,
+                        anim : 2,
+                        offset : '10px',
+                        time : 3000,
+                        title:'失败',
+                        icon: 5
+                    });
+                }, 550)
+            }
+        })
+    }, 1500)
+    
+})
+
+
 </script>
-<script src="__TMPL__/public/assets/js/jquery-1.10.2.min.js"></script>
-<script src="__STATIC__/js/wind.js"></script>
-<script src="__STATIC__/js/admin.js"></script>
-<script>
-    (function () {
-        document.getElementById('input_username').focus();
+<!--[if lt IE 10]>
+    </div>
+<![endif]--> 
+
+
+<div id="think_page_trace" style="position: fixed;bottom:0;right:0;font-size:14px;width:100%;z-index: 999999;color: #000;text-align:left;font-family:'微软雅黑';">
+    <div id="think_page_trace_tab" style="display: none;background:white;margin:0;height: 250px;">
+        <div id="think_page_trace_tab_tit" style="height:30px;padding: 6px 12px 0;border-bottom:1px solid #ececec;border-top:1px solid #ececec;font-size:16px">
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">基本</span>
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">文件</span>
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">流程</span>
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">错误</span>
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">SQL</span>
+                        <span style="color:#000;padding-right:12px;height:30px;line-height:30px;display:inline-block;margin-right:3px;cursor:pointer;font-weight:700">调试</span>
+                    </div>
+        <div id="think_page_trace_tab_cont" style="overflow:auto;height:212px;padding:0;line-height: 24px">
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">请求信息 : 2019-12-12 10:24:04 HTTP/1.1 GET : http://www.tpwoow.com/run/user/login.html</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">运行时间 : 0.127358s [ 吞吐率：7.85req/s ] 内存消耗：4,158.93kb 文件加载：132</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">查询信息 : 0 queries 0 writes </li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">缓存信息 : 0 reads,2 writes</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">会话信息 : SESSION_ID=hgdc7r1ebm6j9gq0cjmjkcq2o6</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\public\index.php ( 0.75 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\base.php ( 1.71 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Loader.php ( 12.70 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\composer\autoload_static.php ( 53.63 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Error.php ( 4.00 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Container.php ( 16.18 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\App.php ( 26.71 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Env.php ( 2.85 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Config.php ( 9.71 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\convention.php ( 11.74 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\tags.php ( 1.13 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Hook.php ( 5.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common.php ( 0.23 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\common.php ( 59.53 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Env.php ( 1.17 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Facade.php ( 3.44 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\addons\common.php ( 6.91 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Route.php ( 3.83 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Route.php ( 25.79 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Request.php ( 57.50 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\Domain.php ( 7.07 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\RuleGroup.php ( 16.45 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\Rule.php ( 28.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\RuleItem.php ( 8.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\RuleName.php ( 3.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Hook.php ( 1.46 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\data\cache\Model.php ( 7.45 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\utility\Hash.php ( 10.88 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\utility\TpText.php ( 6.35 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\data\cache\Menu.php ( 3.96 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\helper.php ( 20.40 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\middleware.php ( 0.05 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Middleware.php ( 5.34 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\provider.php ( 0.63 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\addons.php ( 1.19 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\app.php ( 6.01 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\data\cache\Setting.php ( 1.54 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\auth.php ( 6.30 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\cache.php ( 0.95 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\captcha.php ( 1.20 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\console.php ( 0.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\cookie.php ( 1.11 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\database.php ( 2.85 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\data\config\database.php ( 0.21 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\log.php ( 1.16 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\middleware.php ( 0.86 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\paginate.php ( 0.86 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\session.php ( 1.06 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\template.php ( 1.39 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\config\trace.php ( 0.84 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\symfony\polyfill-mbstring\bootstrap.php ( 4.57 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\topthink\think-helper\src\helper.php ( 2.88 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\topthink\think-captcha\src\helper.php ( 1.54 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Validate.php ( 4.83 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Validate.php ( 43.85 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\topthink\think-migration\src\config.php ( 0.83 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Console.php ( 23.46 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\topthink\think-queue\src\common.php ( 1.19 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\vendor\topthink\think-testing\src\config.php ( 0.65 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Db.php ( 7.67 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Lang.php ( 7.38 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Log.php ( 8.92 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\log\driver\File.php ( 8.97 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\lang\zh-cn.php ( 12.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\route\route.php ( 1.73 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\AliasRule.php ( 3.72 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Config.php ( 1.52 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\behavior\Init.php ( 1.06 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\addons\Addons.php ( 5.27 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Cache.php ( 2.06 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Cache.php ( 3.27 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\cache\driver\File.php ( 7.99 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\cache\Driver.php ( 8.64 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\dispatch\Url.php ( 5.24 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\Dispatch.php ( 9.26 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\route\dispatch\Module.php ( 5.19 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Cookie.php ( 7.35 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\View.php ( 5.74 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\view\driver\Smarty.php ( 5.46 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\Smarty.class.php ( 48.21 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\Autoloader.php ( 5.60 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_internal_data.php ( 13.40 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_internal_templatebase.php ( 19.31 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_internal_template.php ( 34.47 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_resource.php ( 9.49 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_variable.php ( 1.18 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_template_source.php ( 8.26 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Session.php ( 14.13 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Debug.php ( 7.57 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\run\controller\User.php ( 5.95 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\controller\Run.php ( 0.16 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooRun.php ( 60.86 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php ( 22.46 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Controller.php ( 7.53 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\traits\controller\Jump.php ( 4.76 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Auth.php ( 15.29 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\lib\Assign.php ( 1.66 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\data\cache\Developer.php ( 0.62 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\http\Callback.php ( 6.99 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\exception\ErrorException.php ( 1.68 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Exception.php ( 1.61 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\exception\Handle.php ( 8.96 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\User.php ( 7.27 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\App.php ( 2.04 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\model\WooModel.php ( 20.57 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Model.php ( 27.51 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\model\concern\Attribute.php ( 17.64 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\model\concern\RelationShip.php ( 19.87 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\model\concern\ModelEvent.php ( 6.04 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\model\concern\TimeStamp.php ( 2.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\model\concern\Conversion.php ( 7.83 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\model\traits\WooCURD.php ( 5.29 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\model\traits\WooEvent.php ( 8.49 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\model\traits\WooValidate.php ( 11.40 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\model\traits\WooUpload.php ( 25.42 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Session.php ( 2.05 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\UserGroup.php ( 1.95 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\UserGrade.php ( 1.60 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\Member.php ( 3.88 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\Admin.php ( 1.47 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\app\common\model\UserLogin.php ( 1.26 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Response.php ( 9.68 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\response\View.php ( 2.77 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\behavior\End.php ( 1.58 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_internal_resource_file.php ( 7.61 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\include\smarty-3.1.27\libs\sysplugins\smarty_template_compiled.php ( 9.00 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\runtime\temp\05c90ea03fc3946cbadc1a5b82b4423d7db75e3d_1.file.login.html.php ( 14.83 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php ( 12.76 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Html.php ( 2.77 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\facade\Url.php ( 1.13 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\Url.php ( 13.22 KB )</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\library\think\debug\Html.php ( 4.02 KB )</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ LANG ] D:\phpStudy\PHPTutorial\website\woocms1.3.5\thinkphp\lang\zh-cn.php</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ ROUTE ] array (
+)</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ HEADER ] array (
+  'cookie' =&gt; 'thinkphp_show_page_trace=0|0; PHPSESSID=hgdc7r1ebm6j9gq0cjmjkcq2o6; thinkphp_show_page_trace=0|0',
+  'accept-language' =&gt; 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' =&gt; 'gzip, deflate',
+  'accept' =&gt; 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' =&gt; 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
+  'upgrade-insecure-requests' =&gt; '1',
+  'connection' =&gt; 'close',
+  'host' =&gt; 'www.tpwoow.com',
+)</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ PARAM ] array (
+)</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                    <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\controller\WooApp.php:278]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: mid[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:274]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: name[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:276]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: id[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:282]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: retStr[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\common.php:248]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: multiple[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:297]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: title[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:300]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: notext[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:304]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: mid[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:274]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: name[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:276]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: id[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:282]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: retStr[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\common.php:248]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: multiple[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:297]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: title[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:300]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: notext[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:304]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: id[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:282]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: mdl[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:283]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: field[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:283]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: retStr[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\common.php:248]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义变量: field[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:286]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: multiple[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:297]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: title[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:300]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: notext[D:\phpStudy\PHPTutorial\website\woocms1.3.5\woo\helper\Form.php:304]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]未定义数组索引: error[D:\phpStudy\PHPTutorial\website\woocms1.3.5\runtime\temp\05c90ea03fc3946cbadc1a5b82b4423d7db75e3d_1.file.login.html.php:185]</li><li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8]Trying to get property of non-object[D:\phpStudy\PHPTutorial\website\woocms1.3.5\runtime\temp\05c90ea03fc3946cbadc1a5b82b4423d7db75e3d_1.file.login.html.php:185]</li>                </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                                    </ol>
+            </div>
+                        <div style="display:none;">
+                <ol style="padding: 0; margin:0">
+                                    </ol>
+            </div>
+                    </div>
+    </div>
+    <div id="think_page_trace_close" style="display:none;text-align:right;height:15px;position:absolute;top:10px;right:12px;cursor:pointer;"><img style="vertical-align:top;" src="data:image/gif;base64,R0lGODlhDwAPAJEAAAAAAAMDA////wAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUQxMjc1MUJCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUQxMjc1MUNCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRDEyNzUxOUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRDEyNzUxQUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAPAA8AAAIdjI6JZqotoJPR1fnsgRR3C2jZl3Ai9aWZZooV+RQAOw==" /></div>
+</div>
+<div id="think_page_trace_open" style="height:30px;float:right;text-align:right;overflow:hidden;position:fixed;bottom:0;right:0;color:#000;line-height:30px;cursor:pointer;">
+    <div style="background:#232323;color:#FFF;padding:0 6px;float:right;line-height:30px;font-size:14px">0.135656s </div>
+    <img width="30" style="" title="ShowPageTrace" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVERDVENkZGQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVERDVENzAwQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NURENUQ2RkRCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NURENUQ2RkVCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5fx6IRAAAMCElEQVR42sxae3BU1Rk/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">
+</div>
+
+<script type="text/javascript">
+    (function(){
+        var tab_tit  = document.getElementById('think_page_trace_tab_tit').getElementsByTagName('span');
+        var tab_cont = document.getElementById('think_page_trace_tab_cont').getElementsByTagName('div');
+        var open     = document.getElementById('think_page_trace_open');
+        var close    = document.getElementById('think_page_trace_close').children[0];
+        var trace    = document.getElementById('think_page_trace_tab');
+        var cookie   = document.cookie.match(/thinkphp_show_page_trace=(\d\|\d)/);
+        var history  = (cookie && typeof cookie[1] != 'undefined' && cookie[1].split('|')) || [0,0];
+        open.onclick = function(){
+            trace.style.display = 'block';
+            this.style.display = 'none';
+            close.parentNode.style.display = 'block';
+            history[0] = 1;
+            document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+        }
+        close.onclick = function(){
+            trace.style.display = 'none';
+            this.parentNode.style.display = 'none';
+            open.style.display = 'block';
+            history[0] = 0;
+            document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+        }
+        for(var i = 0; i < tab_tit.length; i++){
+            tab_tit[i].onclick = (function(i){
+                return function(){
+                    for(var j = 0; j < tab_cont.length; j++){
+                        tab_cont[j].style.display = 'none';
+                        tab_tit[j].style.color = '#999';
+                    }
+                    tab_cont[i].style.display = 'block';
+                    tab_tit[i].style.color = '#000';
+                    history[1] = i;
+                    document.cookie = 'thinkphp_show_page_trace='+history.join('|')
+                }
+            })(i)
+        }
+        parseInt(history[0]) && open.click();
+        tab_tit[history[1]].click();
     })();
 </script>
 </body>

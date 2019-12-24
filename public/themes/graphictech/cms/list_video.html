@@ -35,8 +35,25 @@
                                   <!-- 精彩视频 -->
                                     <div class="field--item">  
                                         <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
+                                          <div class="pageTop">
+                                          <php>
+                                            $menuschild = $menus['2']['children'];
+                                          </php>                                
+                                            <div class="wal">
+                                                <div class="pageNav">
+                                                    <ul>
+                                                      <volist name="menuschild" id="v">
+                                                        <li>
+                                                          <if condition="$v['target']"><a href="{$v.href}"  target="_blank" > <else/> <a href="{$v.href}" title="{$v.name}"> </if>
+                                                          {$v.name}</a>
+                                                        </li>
+                                                      </volist>      
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                          </div>
                                             <div class="video-lity holder">
-                                                <div class="block-title wow fadeIn" data-wow-delay="0.5s">精彩视频</div>
+                                                <!-- <div class="block-title wow fadeIn" data-wow-delay="0.5s">精彩视频</div> -->
                                                 <div class="container">
                                                     <div class="row">
                                                     <php>

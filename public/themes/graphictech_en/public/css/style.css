@@ -559,7 +559,10 @@ div.tree-child-last {
 div.tree-child-horizontal {
   background: url(../../../images/core/tree.png) no-repeat -11px center;
 }
-@media all and (min-width: 768px) { nav.responsive-menu-block-wrapper { display: block; } div.responsive-menu-toggle { display: none; } }
+@media all and (min-width: 768px) { 
+  nav.responsive-menu-block-wrapper { display: block; } 
+  div.responsive-menu-toggle,.navbar-fixed-top #horizontal-menu li.version { display: none; } 
+}
 
 .responsive-menu-block-wrapper {
   display: none;
@@ -826,7 +829,9 @@ ul.menu.mm-listview a.is-active {
   .conceptPart1,.conceptPart2,.conceptPart3{height:auto;}
   .conceptPart1,.conceptPart2,.conceptPart3{padding:20px 0;}
   .conceptPart1 .title,.conceptPart2 .title,.conceptPart3 .title{font-size: 22px;}
-.conceptPart3 .list li{font-size: 13px;line-height: 26px;}
+  .conceptPart3 .list li{font-size: 13px;line-height: 26px;}
+  .pageTop{display: none;}
+
 }
 @media only screen and (min-width: 768px){
   .page-banner .zoom-box .zoom.zoom-5-2{padding-top: 500px;}

@@ -34,22 +34,24 @@
                         </div>
                         <div class="field--item">
                           <div class="paragraph paragraph--type--content-element paragraph--view-mode--default">
-                            <div class="holder">
-                              <div class="pageTop">
-                              <php>
-                                $menuschild = $navMenuModel->navMenusTreeArray("3", 8);
-                              </php>
-                                <div class="wal">
-                                  <!-- <div class="pageNow"><a href="/" title="企业动态">首页 </a> &gt;  <a href="/html/news/dynamics.html">信息动态</a>&gt;<a href="/html/news/dynamics.html" class="this">企业动态</a> </div> -->
-                                    <div class="pageNav">
-                                        <ul>
-                                          <volist name="menuschild" id="v">
-                                            <li><a href="{$v.href}" title="{$v.name}" class="aNow">{$v.name}</a></li>
-                                          </volist>      
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="pageTop">
+                            <php>
+                              $menuschild = $menus['2']['children'];
+                            </php>                                
+                              <div class="wal">
+                                  <div class="pageNav">
+                                      <ul>
+                                        <volist name="menuschild" id="v">
+                                          <li>
+                                            <if condition="$v['target']"><a href="{$v.href}"  target="_blank" > <else/> <a href="{$v.href}" title="{$v.name}"> </if>
+                                            {$v.name}</a>
+                                          </li>
+                                        </volist>      
+                                      </ul>
+                                  </div>
                               </div>
+                            </div>
+                            <div class="holder">
                               <div class="container">
                                 {$page.content}
                               </div>

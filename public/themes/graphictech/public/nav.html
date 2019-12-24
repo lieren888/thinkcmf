@@ -38,9 +38,10 @@
               <volist name="menus" id="r">
                 <li>
                 <?php
+                    $carray='';
                     $carray=$r['children'];
                  ?>
-                  <if condition="$r['target']"><a href="{$r.href}"  target="_blank" > <else/> <a href="{$r.href}" > </if>{$r.name} <if condition="$carray"><i class="fa fa-angle-down" aria-hidden="true"></i></if></a>
+                  <if condition="!$carray"><if condition="$r['target']"><a href="{$r.href}"  target="_blank" > <else/> <a href="{$r.href}" > </if><else /> <a href="javascript:;" > </if>{$r.name}<if condition="$carray"><i class="fa fa-angle-down" aria-hidden="true"></i></if></a>
                   <if condition="$carray">
                   <ul class="menu sub-nav">
                     <volist name="carray" id="vo">

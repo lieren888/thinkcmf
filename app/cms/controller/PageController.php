@@ -27,7 +27,7 @@ class PageController extends HomeBaseController
         $postService = new PostService();
         $pageId      = $this->request->param('id', 0, 'intval');
         $page        = $postService->publishedPage($pageId);
-
+        
         if (empty($page)) {
             abort(404, ' 页面不存在!');
         }
@@ -36,7 +36,6 @@ class PageController extends HomeBaseController
 
         $showtpl = $page['showtpl'];
         $tplName = empty($showtpl) ? 'page' : $showtpl;
-
         return $this->fetch("/$tplName");
     }
 
